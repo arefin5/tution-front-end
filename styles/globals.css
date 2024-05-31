@@ -303,3 +303,10 @@ input[type="range"]::-webkit-slider-thumb {
   border: 1px solid transparent;
 }
 
+.tutor-container {
+  background-image: url("/public/tutorbanner.png");
+  background-repeat: no-repeat;
+  background-size: cover;  
+  background-position: center center;
+  position: relative;
+} 

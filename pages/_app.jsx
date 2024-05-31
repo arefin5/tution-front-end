@@ -117,9 +117,14 @@ function MyApp({ Component, pageProps }) {
       />
       <div className={`${darkMode ? 'dark' : ''}`}>
         <div className=' bg-neutral-100 dark:bg-neutral-900'>
-          <Header updateMobileMenuState={updateMobileMenuState} darkMode={darkMode} mobileMenuShow={mobileMenuShow} />
+          {/* <Header updateMobileMenuState={updateMobileMenuState} darkMode={darkMode} mobileMenuShow={mobileMenuShow} /> */}
           <div className='flex flex-row'>
-            <SideNav darkMode={darkMode} darkModeHandler={darkModeHandler} updateMobileMenuState={updateMobileMenuState} mobileMenuShow={mobileMenuShow} />
+          
+            {/* <SideNav darkMode={darkMode} 
+            darkModeHandler={darkModeHandler} 
+            updateMobileMenuState={updateMobileMenuState} 
+            mobileMenuShow={mobileMenuShow}
+             /> */}
             <div className='w-full'>
               <Component {...pageProps} />
             </div>

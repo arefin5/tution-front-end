@@ -13,6 +13,8 @@ import TutorCard from "../../components/user/TutorCard";
 import Alert from "sweetalert2";
 import Head from "next/head";
 import React from "react";
+import Image from "next/image";
+import Banner from "../../components/Banner";
 function Tutors({ token, tutorsRes }) {
   const router = useRouter();
 
@@ -126,15 +128,41 @@ function Tutors({ token, tutorsRes }) {
   }, [tutorsRes]);
 
   return (
-    <div className="flex 2xl:flex-row  xl:flex-row  lg:flex-row md:flex-col sm:flex-col flex-col ">
+
+    <div className="">
+
       <Head>
         <title>TuitionApp - All Tutors</title>
       </Head>
-      <div className="2xl:basis-9/12 xl:basis-9/12 lg:basis-9/12 md:basis-full sm:basis-full basis-full h-full lg:mb-8 md:mb-6 sm:mb-4 mb-2">
-        <div className="max-w-screen-xl px-4  md:px-8 mx-auto">
+
+{/*      
+      <div className="relative w-full h-96">
+        <Image
+          src="/tutorbanner.png"
+          layout="fill"
+          objectFit="cover"
+          alt="Tutor Banner"
+          className="z-0"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center text-white z-10">
+          <h1 className="text-4xl font-bold mb-4">দেশের সবচাইতে বড় টিউটর প্ল্যাটফর্মে স্বাগতম!</h1>
+          <p className="text-xl opacity-50">সেরা শিক্ষকদের পরিচর্যায় দেশের যেকোন প্রান্ত থেকে<br />অব্যাহত থাকুক পড়াশুনার অগ্রযাত্রা</p>
+        </div>
+      </div> */}
+<Banner />
+
+      <div className="2xl:basis-9/12 xl:basis-9/12 lg:basis-9/12 md:basis-full sm:basis-full 
+      basis-full h-full lg:mb-8 md:mb-6 sm:mb-4 mb-2">
+        <div>
           <div
             className={`flex flex-col w-full  bg-white rounded-lg  dark:bg-neutral-800 p-4 mb-6 h-full`}
           >
+
+           {/* <Image src= '/tutorbanner.png'  height={400} width={1000} />
+<h1>দেশের সবচাইতে বড় টিউটর প্ল্যাটফর্মে স্বাগতম!</h1>
+<p>সেরা শিক্ষকদের পরিচর্যায় দেশের যেকোন প্রান্ত থেকে <br />
+ অব্যাহত থাকুক পড়াশুনার অগ্রযাত্রা</p> */}
+
             <div className="w-full justify-between flex mb-5">
               <h2 className="text-gray-800 dark:text-gray-200 text-2xl lg:text-3xl font-bold">
                 All Registered tutors
@@ -247,7 +275,10 @@ function Tutors({ token, tutorsRes }) {
                   </button>
                   <button
                     onClick={(e) => filter(e)}
-                    className="w-10 md:w-12 h-10 md:h-12 flex justify-center items-center shrink-0 bg-rose-600 hover:bg-rose-700 active:bg-rose-700 text-white rounded-lg shadow-lg transition duration-100"
+                    className="w-10 md:w-12 h-10 md:h-12 flex
+                     justify-center items-center shrink-0 
+                     bg-rose-600 hover:bg-rose-700 active:bg-rose-700 
+                     text-white rounded-lg shadow-lg transition duration-100"
                   >
                     <FiCheck className="w-6 h-6" />
                   </button>
@@ -299,7 +330,7 @@ function Tutors({ token, tutorsRes }) {
         </div>
       </div>
       <div className="2xl:basis-3/12 xl:basis-3/12 lg:basis-3/12 md:basis-full sm:basis-full basis-full ">
-        <Sidebar />
+        {/* <Sidebar /> */}
       </div>
     </div>
   );
