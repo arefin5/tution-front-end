@@ -309,7 +309,21 @@ input[type="range"]::-webkit-slider-thumb {
   background-size: cover;  
   background-position: center center;
   position: relative;
+  opacity: 0.8;
 } 
 .banner-main{
   background-color: #FFFFFF;
+}
+.main-tutor{
+  max-width: 1006px !important;
+}
+.tutor-cards{
+  margin: 0px ;
+  border-radius: 20px;
+  ;
+
+}
+.all-m{
+margin-top: 10px ;
+
 }

@@ -175,22 +175,8 @@ function Tutors({ token, tutorsRes }) {
       </Head>
 
       <Banner />
-
-      <div className="container
-       mx-auto  2xl:basis-9/12
-        xl:basis-9/12 lg:basis-9/12
-         md:basis-full sm:basis-full
-          basis-full h-full lg:mb-8 md:mb-6 
-          sm:mb-4
-           mb-2">
-        <div>
-          <div
-            className={`flex flex-col w-full   rounded-lg  dark:bg-neutral-800 p-4 mb-6 h-full`}
-          >
-
-<SearchBar />
-           {/*navigation  */}
-         <div className="bg-green-600 pt-3 pb-3 mb-4 mt-4 flex justify-center">
+  {/*navigation  */}
+  <div className="bg-green-600 pt-3 pb-3 mb-4 mt-4 flex justify-center">
   <div className="flex flex-row mx-auto items-center">
     <div className="px-2">
       <p onClick={() => handleComponentChange('component1')} className="cursor-pointer text-white">টিউটর প্রফাইল |</p>
@@ -203,6 +189,21 @@ function Tutors({ token, tutorsRes }) {
     </div>
   </div>
 </div>
+      <div className="container 
+      main-tutor
+       mx-auto  2xl:basis-9/12
+        xl:basis-9/12 lg:basis-9/12
+         md:basis-full sm:basis-full
+          basis-full h-full lg:mb-8 md:mb-6 
+          sm:mb-4
+           mb-2">
+        <div>
+          <div
+            className={`flex flex-col w-full   rounded-lg  dark:bg-neutral-800 p-4 mb-6 h-full`}
+          >
+
+<SearchBar />
+         
 
                 {renderComponent()}
            {/*  */}
