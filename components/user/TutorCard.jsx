@@ -101,6 +101,7 @@ function TutorCard({
   } else {
     profileImg = `${ServerRoot}/${avatarImg}`;
   }
+  console.log(verified)
 
   return (
     <div className="flex flex-col 

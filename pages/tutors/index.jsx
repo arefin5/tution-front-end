@@ -190,7 +190,7 @@ function Tutors({ token, tutorsRes }) {
 
 <SearchBar />
            {/*navigation  */}
-         <div className="bg-green-600 pt-3 pb-3 flex justify-center">
+         <div className="bg-green-600 pt-3 pb-3 mb-4 mt-4 flex justify-center">
   <div className="flex flex-row mx-auto items-center">
     <div className="px-2">
       <p onClick={() => handleComponentChange('component1')} className="cursor-pointer text-white">টিউটর প্রফাইল |</p>
