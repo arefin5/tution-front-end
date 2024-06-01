@@ -310,3 +310,6 @@ input[type="range"]::-webkit-slider-thumb {
   background-position: center center;
   position: relative;
 } 
+.banner-main{
+  background-color: #FFFFFF;
+}

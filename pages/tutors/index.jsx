@@ -129,7 +129,7 @@ function Tutors({ token, tutorsRes }) {
   }, [tutorsRes]);
 
   return (
-    <div className="">
+    <div className="banner-main">
       <Head>
         <title></title>
       </Head>
@@ -140,44 +140,17 @@ function Tutors({ token, tutorsRes }) {
        mx-auto  2xl:basis-9/12
         xl:basis-9/12 lg:basis-9/12
          md:basis-full sm:basis-full
-          basis-full h-full lg:mb-8 md:mb-6 sm:mb-4 mb-2">
+          basis-full h-full lg:mb-8 md:mb-6 
+          sm:mb-4
+           mb-2">
         <div>
           <div
-            className={`flex flex-col w-full  bg-white rounded-lg  dark:bg-neutral-800 p-4 mb-6 h-full`}
+            className={`flex flex-col w-full   rounded-lg  dark:bg-neutral-800 p-4 mb-6 h-full`}
           >
 
-            <div className="flex items-center p-2 bg-gray-100 rounded-lg">
-              <div className="flex relative bg-white rounded-r-lg ml-1">
-                <BiSearch className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-600" />
-                <input
-                  type="text"
-                  placeholder="BUEV"
-                  className="w-full pl-10 pr-3 py-2 border border-gray-300 focus:outline-none rounded-lg h-12"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-                {search && (
-                  <MdClear className="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-600 cursor-pointer" onClick={clearSearch} />
-                )}
-              </div>
-            </div>
-            {/*  */}
-            <div className="flex items-center p-2 bg-gray-100 rounded-lg">
-              <div className="flex relative bg-white rounded-r-lg ml-1">
-                <BiSearch className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-600" />
-                <input
-                  type="text"
-                  placeholder="DU"
-                  className=" pl-10 pr-3 py-2 border border-gray-300 focus:outline-none rounded-lg h-12"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-                {search && (
-                  <MdClear className="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-600 cursor-pointer" onClick={clearSearch} />
-                )}
-              </div>
-            </div>
-            {/*  */}
+<SearchBar />
+           
+          
           </div>
 
           <div

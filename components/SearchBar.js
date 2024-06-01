@@ -1,7 +1,7 @@
 import { BiSearch } from "react-icons/bi";
 import { useState } from "react";
 import { useRouter } from "next/router";
-
+import { MdClear, MdTune, MdFilterList} from "react-icons/md";
 const SearchBar = () => {
   const router = useRouter();
   const [search, setSearch] = useState("");
@@ -17,22 +17,141 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="flex items-center bg-white rounded-lg shadow-md p-4">
-      <BiSearch className="text-gray-600 mr-2" />
+    <div className="flex">
+  <div className="flex-auto w-14 mx-auto">
+    <div className="flex relative bg-white rounded-r-lg ml-1">
+      <BiSearch className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-600" />
       <input
         type="text"
-        placeholder="Search..."
-        className="flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
+        placeholder="BUEV"
+        className="w-full pl-10 pr-3 py-2 border border-gray-300 focus:outline-none rounded-lg h-12"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
       {search && (
-        <button onClick={clearSearch} className="ml-2 text-gray-600">
-          Clear
-        </button>
+        <MdClear
+          className="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-600 cursor-pointer"
+          onClick={clearSearch}
+        />
       )}
-      
     </div>
+  </div>
+
+  {/*  */}
+  <div className="flex-auto w-14 mx-auto">
+    <div className="flex relative bg-white rounded-r-lg ml-1">
+      <BiSearch className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-600" />
+      <input
+        type="text"
+        placeholder="DU"
+        className="w-full pl-10 pr-3 py-2 border border-gray-300 focus:outline-none rounded-lg h-12"
+
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      {search && (
+        <MdClear
+          className="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-600 cursor-pointer"
+          onClick={clearSearch}
+        />
+      )}
+    </div>
+  </div>
+  {/*  */}
+  <div className="flex-auto w-14 mx-auto">
+    <div className="flex relative bg-white rounded-r-lg ml-1">
+      <BiSearch className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-600" />
+      <input
+        type="text"
+        placeholder="DU"
+        className="w-full pl-10 pr-3 py-2 border border-gray-300 focus:outline-none rounded-lg h-12"
+
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      {search && (
+        <MdClear
+          className="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-600 cursor-pointer"
+          onClick={clearSearch}
+        />
+      )}
+    </div>
+  </div>
+  {/*  */}
+  <div className="flex-auto w-14 mx-auto">
+    <div className="flex relative bg-white rounded-r-lg ml-1">
+      <BiSearch className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-600" />
+      <input
+        type="text"
+        placeholder="DU"
+        className="w-full pl-10 pr-3 py-2 border border-gray-300 focus:outline-none rounded-lg h-12"
+
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      {search && (
+        <MdClear
+          className="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-600 cursor-pointer"
+          onClick={clearSearch}
+        />
+      )}
+    </div>
+  </div>
+  {/*  */}
+  <div className="flex-auto w-14 mx-auto">
+    <div className="flex relative bg-white rounded-r-lg ml-1">
+      <BiSearch className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-600" />
+      <input
+        type="text"
+        placeholder="DU"
+        className="w-full pl-10 pr-3 py-2 border border-gray-300 focus:outline-none rounded-lg h-12"
+
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      {search && (
+        <MdClear
+          className="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-600 cursor-pointer"
+          onClick={clearSearch}
+        />
+      )}
+    </div>
+  </div>
+  {/*  */}
+  <div className="flex-auto w-14 mx-auto">
+    <div className="flex relative bg-white rounded-r-lg ml-1">
+      <BiSearch className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-600" />
+      <input
+        type="text"
+        placeholder="DU"
+        className="w-full pl-10 pr-3 py-2 border border-gray-300 focus:outline-none rounded-lg h-12"
+
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      {search && (
+        <MdClear
+          className="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-600 cursor-pointer"
+          onClick={clearSearch}
+        />
+      )}
+    </div>
+  </div>
+  {/*  */}
+  <div className="flex-auto w-5 mx-auto">
+   
+  </div>
+  <div className="flex-auto w-14 mx-auto mt-2">
+    <div className="flex relative ">
+    <button style={{ display: 'flex', alignItems: 'center' }}>
+    <span >Filter</span>
+
+      <MdTune size={24} style={{ marginLeft : '8px' }} />
+    </button>    
+    </div>
+  </div>
+  {/*  */}
+</div>
   );
 };
 
