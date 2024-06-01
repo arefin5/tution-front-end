@@ -190,21 +190,20 @@ function Tutors({ token, tutorsRes }) {
 
 <SearchBar />
            {/*navigation  */}
-           <div className="flex flex-row">
-  <div className="">
-  <p onClick={() => handleComponentChange('component1')}>টিউটর প্রফাইল |</p>
+         <div className="bg-green-600 pt-3 pb-3 flex justify-center">
+  <div className="flex flex-row mx-auto items-center">
+    <div className="px-2">
+      <p onClick={() => handleComponentChange('component1')} className="cursor-pointer text-white">টিউটর প্রফাইল |</p>
+    </div>
+    <div className="px-2">
+      <p onClick={() => handleComponentChange('component2')} className="cursor-pointer text-white">টিউটর পোস্ট |</p>
+    </div>
+    <div className="px-2">
+      <p onClick={() => handleComponentChange('component3')} className="cursor-pointer text-white">টিউশন পোস্ট</p>
+    </div>
+  </div>
+</div>
 
-  </div>
-  <div className="">
-  <p onClick={() => handleComponentChange('component2')}>টিউটর পোস্ট |</p>
-  </div>
-  <div className="">
-  <p onClick={() => handleComponentChange('component3')}>টিউশন পোস্ট</p>
-
-  </div>
-  
-  </div>
-         
                 {renderComponent()}
            {/*  */}
           
