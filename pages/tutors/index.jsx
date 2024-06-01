@@ -44,6 +44,8 @@ function Tutors({ token, tutorsRes }) {
   const [pages, setPages] = useState(1);
   const [current, setCurrent] = useState(1);
   const [lastPage, setLastPage] = useState(false);
+  const [activeComponent, setActiveComponent] = useState('component1'); // Set Component1 as default
+
 
   const showForm = (e) => {
     e.preventDefault();
@@ -121,6 +123,41 @@ function Tutors({ token, tutorsRes }) {
     }
   };
 
+
+
+  // 
+  const renderComponent = () => {
+    switch (activeComponent) {
+      case 'component1':
+          return (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 lg:gap-4">
+              {tutorData.map((item, index) => (
+                <TutorCard
+                  key={index}
+                  avatarImg={item.avatarImg}
+                  name={item.name}
+                  institute={item.institute}
+                  department={item.department}
+                  ratingsCount={item.ratingsCount}
+                  starsCount={item.starsCount}
+                  verified={item.verified}
+                  gender={item.gender}
+                  id={item._id}
+                />
+              ))}
+            </div>
+          );
+      case 'component2':
+        return < SearchBar/>;
+      case 'component3':
+        return <Banner />;
+      
+      default:
+        return null;
+    }
+  };
+  // 
+
   useEffect(() => {
     setTutorData(tutorsRes.data);
     setPages(tutorsRes.pages);
@@ -149,7 +186,14 @@ function Tutors({ token, tutorsRes }) {
           >
 
 <SearchBar />
-           
+           {/*navigation  */}
+           <div className="d-flex">
+                  <p onClick={() => handleComponentChange('component1')}>টিউটর প্রফাইল</p>
+                  <p onClick={() => handleComponentChange('component2')}>টিউটর পোস্ট</p>
+                  <p onClick={() => handleComponentChange('component3')}>টিউটর পোস্ট</p>
+                </div>
+                {renderComponent()}
+           {/*  */}
           
           </div>
 
