@@ -192,14 +192,14 @@ function Tutors({ token, tutorsRes }) {
            {/*navigation  */}
            <div className="flex flex-row">
   <div className="">
-  <p onClick={() => handleComponentChange('component1')}>টিউটর প্রফাইল</p>
+  <p onClick={() => handleComponentChange('component1')}>টিউটর প্রফাইল |</p>
 
   </div>
   <div className="">
-  <p onClick={() => handleComponentChange('component2')}>টিউটর পোস্ট</p>
+  <p onClick={() => handleComponentChange('component2')}>টিউটর পোস্ট |</p>
   </div>
   <div className="">
-  <p onClick={() => handleComponentChange('component3')}>টিউটর পোস্ট</p>
+  <p onClick={() => handleComponentChange('component3')}>টিউশন পোস্ট</p>
 
   </div>
   
