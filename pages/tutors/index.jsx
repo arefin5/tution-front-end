@@ -123,7 +123,10 @@ function Tutors({ token, tutorsRes }) {
     }
   };
 
-
+// 
+ const handleComponentChange = (componentName) => {
+    setActiveComponent(componentName);
+  };
 
   // 
   const renderComponent = () => {
@@ -187,11 +190,21 @@ function Tutors({ token, tutorsRes }) {
 
 <SearchBar />
            {/*navigation  */}
-           <div className="d-flex">
-                  <p onClick={() => handleComponentChange('component1')}>টিউটর প্রফাইল</p>
-                  <p onClick={() => handleComponentChange('component2')}>টিউটর পোস্ট</p>
-                  <p onClick={() => handleComponentChange('component3')}>টিউটর পোস্ট</p>
-                </div>
+           <div className="flex flex-row">
+  <div className="">
+  <p onClick={() => handleComponentChange('component1')}>টিউটর প্রফাইল</p>
+
+  </div>
+  <div className="">
+  <p onClick={() => handleComponentChange('component2')}>টিউটর পোস্ট</p>
+  </div>
+  <div className="">
+  <p onClick={() => handleComponentChange('component3')}>টিউটর পোস্ট</p>
+
+  </div>
+  
+  </div>
+         
                 {renderComponent()}
            {/*  */}
           
@@ -278,20 +291,7 @@ function Tutors({ token, tutorsRes }) {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 lg:gap-4">
-            {tutorData.map((item, index) => (
-              <TutorCard key={index}
-                avatarImg={item.avatarImg}
-                name={item.name}
-                institute={item.institute}
-                department={item.department}
-                ratingsCount={item.ratingsCount}
-                starsCount={item.starsCount}
-                verified={item.verified}
-                gender={item.gender}
-                id={item._id} />
-            ))}
-          </div>
+         
           <div className="flex justify-between items-center mt-8">
             <button
               onClick={prevPage}
