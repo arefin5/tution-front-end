@@ -17,6 +17,11 @@ import React from "react";
 import Image from "next/image";
 import Banner from "../../components/Banner";
 import SearchBar from "../../components/SearchBar";
+import { Modal, Pagination } from "antd";
+import { GoArrowLeft } from "react-icons/go";
+import { GoArrowRight } from "react-icons/go";
+import { RiArrowLeftLine } from "react-icons/ri";
+import { RiArrowRightLine } from "react-icons/ri";
 
 
 function Tutors({ token, tutorsRes }) {
@@ -45,6 +50,8 @@ function Tutors({ token, tutorsRes }) {
   const [current, setCurrent] = useState(1);
   const [lastPage, setLastPage] = useState(false);
   const [activeComponent, setActiveComponent] = useState('component1'); // Set Component1 as default
+  const [page, setPage] = useState(1);
+  const [totalPosts, setTotalPosts] = useState(10);
 
 
   const showForm = (e) => {
@@ -122,9 +129,16 @@ function Tutors({ token, tutorsRes }) {
       });
     }
   };
-
-// 
- const handleComponentChange = (componentName) => {
+  // 
+  const handlePageChange = (pageNumber) => {
+    if (pageNumber > 0 && pageNumber <= pages) {
+      router.replace(
+        `/tutors/?page=${pageNumber}`
+      );
+    }
+  };
+  // 
+  const handleComponentChange = (componentName) => {
     setActiveComponent(componentName);
   };
 
@@ -132,29 +146,29 @@ function Tutors({ token, tutorsRes }) {
   const renderComponent = () => {
     switch (activeComponent) {
       case 'component1':
-          return (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 lg:gap-4">
-              {tutorData.map((item, index) => (
-                <TutorCard
-                  key={index}
-                  avatarImg={item.avatarImg}
-                  name={item.name}
-                  institute={item.institute}
-                  department={item.department}
-                  ratingsCount={item.ratingsCount}
-                  starsCount={item.starsCount}
-                  verified={item.verified}
-                  gender={item.gender}
-                  id={item._id}
-                />
-              ))}
-            </div>
-          );
+        return (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 lg:gap-4">
+            {tutorData.map((item, index) => (
+              <TutorCard
+                key={index}
+                avatarImg={item.avatarImg}
+                name={item.name}
+                institute={item.institute}
+                department={item.department}
+                ratingsCount={item.ratingsCount}
+                starsCount={item.starsCount}
+                verified={item.verified}
+                gender={item.gender}
+                id={item._id}
+              />
+            ))}
+          </div>
+        );
       case 'component2':
-        return < SearchBar/>;
+        return < SearchBar />;
       case 'component3':
         return <Banner />;
-      
+
       default:
         return null;
     }
@@ -175,24 +189,24 @@ function Tutors({ token, tutorsRes }) {
       </Head>
 
       <Banner />
-  {/*navigation  */}
-  <div className="navigation-tutor pt-3 pb-3 mb-4 mt-4 flex justify-center">
-  <div className="flex flex-row mx-auto items-center">
-    <div className="px-2">
-      <p onClick={() => handleComponentChange('component1')}
-              className={`cursor-pointer text-white ${activeComponent === 'component1' ? 'activeB' : ''}`}
-       >টিউটর প্রফাইল |</p>
-    </div>
-    <div className="px-2">
-      <p onClick={() => handleComponentChange('component2')} 
-                    className={`cursor-pointer text-white ${activeComponent === 'component2' ? 'activeB' : ''}`}
-      >টিউটর পোস্ট |</p>
-    </div>
-    <div className="px-2">
-      <p onClick={() => handleComponentChange('component3')}               className={`cursor-pointer text-white ${activeComponent === 'component3' ? 'activeB' : ''}`}>টিউশন পোস্ট</p>
-    </div>
-  </div>
-</div>
+      {/*navigation  */}
+      <div className="navigation-tutor pt-3 pb-3 mb-4 mt-4 flex justify-center">
+        <div className="flex flex-row mx-auto items-center">
+          <div className="px-2">
+            <p onClick={() => handleComponentChange('component1')}
+              className={`opacity-50 cursor-pointer text-white ${activeComponent === 'component1' ? 'activeB' : ''}`}
+            >টিউটর প্রফাইল |</p>
+          </div>
+          <div className="px-2">
+            <p onClick={() => handleComponentChange('component2')}
+              className={`opacity-50 cursor-pointer text-white ${activeComponent === 'component2' ? 'activeB' : ''}`}
+            >টিউটর পোস্ট |</p>
+          </div>
+          <div className="px-2">
+            <p onClick={() => handleComponentChange('component3')} className={`opacity-50 cursor-pointer text-white ${activeComponent === 'component3' ? 'activeB' : ''}`}>টিউশন পোস্ট</p>
+          </div>
+        </div>
+      </div>
       <div className="container 
       main-tutor
        mx-auto  2xl:basis-9/12
@@ -206,12 +220,12 @@ function Tutors({ token, tutorsRes }) {
             className={`flex flex-col w-full   rounded-lg  dark:bg-neutral-800 p-4 mb-6 h-full`}
           >
 
-<SearchBar />
-         
+            <SearchBar />
 
-                {renderComponent()}
-           {/*  */}
-          
+
+            {renderComponent()}
+            {/*  */}
+
           </div>
 
           <div
@@ -295,24 +309,47 @@ function Tutors({ token, tutorsRes }) {
             </div>
           </div>
 
-         
-          <div className="flex justify-between items-center mt-8">
-            <button
-              onClick={prevPage}
-              className="bg-rose-600 hover:bg-rose-700 active:bg-rose-700 focus-visible:ring ring-rose-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-2"
-            >
-              <AiOutlineLeft className="inline-block mr-2" /> Previous
-            </button>
-            <p className="text-gray-700 dark:text-gray-200">
-              Page {current} of {pages}
-            </p>
-            <button
-              onClick={nextPage}
-              className="bg-rose-600 hover:bg-rose-700 active:bg-rose-700 focus-visible:ring ring-rose-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-2"
-            >
-              Next <AiOutlineRight className="inline-block ml-2" />
-            </button>
-          </div>
+
+
+
+         {/*  */}
+         {/* Pagination Container */}
+<div className="flex justify-center mt-4">
+  <nav aria-label="Page navigation">
+    <ul className="inline-flex space-x-2">
+      <li>
+        <button className="flex items-center justify-center w-10 h-10 text-green-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100">
+        <RiArrowLeftLine size={30} className="text-green-600 transform rotate-360 duration-1000" />
+
+        </button>
+      </li>
+      <li>
+        <button className="w-10 h-10 text-black-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100">1</button>
+      </li>
+      <li>
+        <button className="w-10 h-10 text-black-600 transition-colors duration-150 rounded-full 
+        focus:shadow-outline hover:bg-green-100">2</button>
+      </li>
+      <li>
+        <button className="w-10 h-10 text-white transition-colors duration-150 bg-green-600 border border-r-0 border-green-600 rounded-full focus:shadow-outline">3</button>
+      </li>
+      <li>
+        <button className="flex items-center justify-center w-10 h-10 text-green-600 transition-colors duration-150 bg-white rounded-full focus:shadow-outline hover:bg-indigo-100">
+        
+        <RiArrowRightLine size={30} className="text-green-600 transform rotate-360 duration-1000" />
+
+
+        </button>
+       
+
+      </li>
+    </ul>
+  </nav>
+</div>
+
+         {/*  */}
+
+
         </div>
       </div>
     </div>
@@ -338,3 +375,4 @@ export async function getServerSideProps(ctx) {
 }
 
 export default Tutors;
+
