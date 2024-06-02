@@ -28,9 +28,9 @@ const Banner = () => {
         alt="Banner"
         className="z-0"
       />
-      <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center text-white z-10">
-        <h1 className="text-4xl font-bold mb-4">দেশের সবচাইতে বড় টিউটর প্ল্যাটফর্মে স্বাগতম!</h1>
-        <p className="text-xl opacity-50">সেরা শিক্ষকদের পরিচর্যায় দেশের যেকোন প্রান্ত থেকে<br />অব্যাহত থাকুক পড়াশুনার অগ্রযাত্রা</p>
+      <div className="absolute inset-0 bg-black bg-opacity-80 flex flex-col items-center justify-center text-center text-white z-10">
+        <h1 className="text-4xl font-bold mb-4 baneer-f">দেশের সবচাইতে বড় টিউটর প্ল্যাটফর্মে স্বাগতম!</h1>
+        <p className="text-xl opacity-50 baneer-f">সেরা শিক্ষকদের পরিচর্যায় দেশের যেকোন প্রান্ত থেকে<br />অব্যাহত থাকুক পড়াশুনার অগ্রযাত্রা</p>
         <div className="bg-white mt-4 w-full max-w-xl flex pt-4 pb-4 pl-6 pr-6 rounded-lg">
           <div className="flex-grow relative bg-white rounded-l-lg">
             <HiOutlineLocationMarker className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-600" />

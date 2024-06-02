@@ -176,16 +176,20 @@ function Tutors({ token, tutorsRes }) {
 
       <Banner />
   {/*navigation  */}
-  <div className="bg-green-600 pt-3 pb-3 mb-4 mt-4 flex justify-center">
+  <div className="navigation-tutor pt-3 pb-3 mb-4 mt-4 flex justify-center">
   <div className="flex flex-row mx-auto items-center">
     <div className="px-2">
-      <p onClick={() => handleComponentChange('component1')} className="cursor-pointer text-white">টিউটর প্রফাইল |</p>
+      <p onClick={() => handleComponentChange('component1')}
+              className={`cursor-pointer text-white ${activeComponent === 'component1' ? 'activeB' : ''}`}
+       >টিউটর প্রফাইল |</p>
     </div>
     <div className="px-2">
-      <p onClick={() => handleComponentChange('component2')} className="cursor-pointer text-white">টিউটর পোস্ট |</p>
+      <p onClick={() => handleComponentChange('component2')} 
+                    className={`cursor-pointer text-white ${activeComponent === 'component2' ? 'activeB' : ''}`}
+      >টিউটর পোস্ট |</p>
     </div>
     <div className="px-2">
-      <p onClick={() => handleComponentChange('component3')} className="cursor-pointer text-white">টিউশন পোস্ট</p>
+      <p onClick={() => handleComponentChange('component3')}               className={`cursor-pointer text-white ${activeComponent === 'component3' ? 'activeB' : ''}`}>টিউশন পোস্ট</p>
     </div>
   </div>
 </div>

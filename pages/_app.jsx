@@ -126,6 +126,11 @@ function MyApp({ Component, pageProps }) {
             mobileMenuShow={mobileMenuShow}
              /> */}
             <div className='w-full'>
+            <head>
+            <link href="https://fonts.cdnfonts.com/css/li-ador-noirrit?styles=87152" rel="stylesheet" 
+            />
+
+            </head>
               <Component {...pageProps} />
             </div>
           </div>
