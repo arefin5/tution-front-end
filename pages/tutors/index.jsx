@@ -22,7 +22,7 @@ import { GoArrowLeft } from "react-icons/go";
 import { GoArrowRight } from "react-icons/go";
 import { RiArrowLeftLine } from "react-icons/ri";
 import { RiArrowRightLine } from "react-icons/ri";
-
+import Navbar from "../../components/Navbar"
 
 function Tutors({ token, tutorsRes }) {
   const router = useRouter();
@@ -187,7 +187,7 @@ function Tutors({ token, tutorsRes }) {
       <Head>
         <title></title>
       </Head>
-
+<Navbar />
       <Banner />
       {/*navigation  */}
       <div className="navigation-tutor pt-3 pb-3 mb-4 mt-4 flex justify-center">

@@ -7,7 +7,7 @@ import HomeStatus from '../components/page/HomeStatus';
 import Sidebar from '../components/page/Sidebar';
 import HomePostSection from '../components/post/HomePostSection';
 import HomeTutorSection from '../components/user/HomeTutorSection';
-
+import HomeTop from "../components/HomeTop"
 
 
 
@@ -27,9 +27,9 @@ export default function Home({ token, posts, tutors, slides, media, stats }) {
         description="A short description goes here."
       /> */}
       <div className='flex  flex-col lg:flex-row '>
-        <div className="basis-full lg:basis-9/12 h-full mb-8">
-          <div className="max-w-screen-xl px-4 md:px-8 mx-auto">
-            <HomeSlider sliderData={slides} />
+        <div className="w-full">
+          <div className="">
+          <HomeTop />
           </div>
           {
             tutors?.data.length >= 4 &&
@@ -47,9 +47,7 @@ export default function Home({ token, posts, tutors, slides, media, stats }) {
             <HomePostSection posts={posts} token={token} />
           </div>
         </div>
-        <div className="basis-full lg:basis-3/12">
-          <Sidebar />
-        </div>
+       
       </div>
       <div className="w-full my-8 px-4 md:px-8 mx-auto  lg:mb-8 md:mb-6 sm:mb-4 mb-2">
         < HomeHero />

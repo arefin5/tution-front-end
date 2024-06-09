@@ -8,6 +8,7 @@
     "start": "next start -p 3000"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
     "@types/axios": "^0.14.0",
     "@types/dot": "^1.1.5",
     "@types/dotenv": "^8.2.0",
