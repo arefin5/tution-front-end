@@ -11,6 +11,7 @@ import { MdClear, MdClose } from 'react-icons/md';
 import Slider from "react-slick";
 import TutorCard from './TutorCard'
 import LocationSelector from '../utils/LocationSelector';
+import { RiArrowRightLine } from "react-icons/ri";
 
 function SamplePrevArrow(props) {
     const { onClick } = props;
@@ -84,7 +85,7 @@ function HomeTutorSection({ token, tutors }) {
     const [tutorData, setTutorData] = useState([]);
     const settings = {
         infinite: true,
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 1,
         initialSlide: 0,
         speed: 500,
@@ -135,44 +136,19 @@ function HomeTutorSection({ token, tutors }) {
     return (
         <>
             <div className="flex justify-between items-end gap-4 mb-6">
-                <div className='flex flex-col w-full'>
-                    <div className={`flex flex-col w-full  bg-white rounded-lg  dark:bg-neutral-800 p-4 mb-6 h-full`} >
-                        <div className="w-full justify-between flex mb-5">
-                            <h2 className="text-gray-800 dark:text-gray-200 text-2xl lg:text-3xl font-bold">Recent Registered tutors</h2>
-                        </div>
-                        <div className='w-full flex flex-row'>
-                            <div className="w-full flex ">
-                                <input value={search} onChange={e => setSearch(e.target.value)} className=" bg-neutral-100 focus:outline-none dark:bg-neutral-900 text-gray-700 dark:text-gray-200 items-center h-10 w-full px-3 text-sm" type="text" placeholder="Search…" />
-                                {
-                                    search !== '' &&
-                                    <button onClick={(event) => { clearSearch(event) }} className="w-10 focus:border-0  h-10 flex justify-center items-center shrink-0 bg-neutral-100  dark:bg-neutral-900 text-gray-700 dark:text-gray-200 transition duration-100">
-                                        <MdClear className='w-6 h-6' />
-                                    </button>
-                                }
-                                <button onClick={(event) => { HandleSearch(event) }} className="w-10 focus:border-0  h-10 flex justify-center items-center shrink-0 bg-rose-600 hover:bg-rose-700 active:bg-rose-700 text-white rounded-r-lg shadow-lg transition duration-100">
-                                    <BiSearch className='w-6 h-6' />
-                                </button>
-                            </div>
-                            <div className='ml-2 flex gap-1 justify-end'>
-                                {
-                                    (division !== '' || gender !== 'all' || search !== '') &&
-                                    <button onClick={e => clearFilterBtn(e)} className={` w-10  h-10  flex justify-center items-center shrink-0 bg-neutral-500 hover:bg-neutral-600 active:bg-neutral-700 text-white rounded-lg  transition duration-100`}>
-                                        <AiOutlineUndo className='w-6 h-6' />
-                                    </button>
-                                }
-                                <button onClick={e => showForm(e)} className={`p-2 h-10 md:w-40 flex justify-center items-center ${showFilter == true ? 'bg-neutral-500 hover:bg-neutral-600 active:bg-neutral-700' : 'bg-rose-600 hover:bg-rose-700 active:bg-rose-700'}  text-white rounded-lg shadow-lg transition duration-100`}>
-                                    {showFilter == true ?
-                                        <MdClose className='w-6 h-6' />
-                                        :
-                                        <HiOutlineLocationMarker className='w-5 h-5' />
-                                    }
-                                    <p className="text-white mb-2 m-2" >Location</p>
-                                </button>
-                            </div>
+                <div className='  w-full'>
+                    <div className={`  w-full   p-4 mb-6 h-full`} >
+                        <div className="w-full mb-5 mx-auto mx-auto text-center">
+                            <h2 className=" text-2xl lg:text-3xl tutor-title">জনপ্রিয় টিউটরসমূহ</h2>
+                            <p className='home-top-sub'>Hear from our satisfied clients and learn how we&#x27;ve helped them take <br />
+                            their businesses to new heights.</p>
                         </div>
                     </div>
-                    <div className={`flex w-full justify-between items-center gap-4 mb-6 ${showFilter == false ? 'hidden' : 'block'}`} >
-                        <div className="flex items-center justify-between  p-4 w-full flex-wrap mb-2 bg-gray-100 rounded-lg dark:bg-neutral-800 ring-2 ring-rose-600 ">\
+                    <div className={`flex w-full justify-between 
+                    items-center gap-4 mb-6 ${showFilter == false ? 'hidden' : 'block'}`} >
+                        <div className="flex items-center justify-between  
+                        p-4 w-full flex-wrap mb-2 bg-gray-100 rounded-lg dark:bg-neutral-800 
+                        ring-2 ring-rose-600 ">\
                             <div className='w-full grid grid-cols-3 gap-4 '>
                                 <div className='col-span-4 md:col-span-2 '>
                                     <p className="text-gray-700 dark:text-gray-200 mb-2 " >Location</p>
@@ -213,7 +189,7 @@ function HomeTutorSection({ token, tutors }) {
                 </div>
             </div>
             <div className='w-full'>
-                <div className="mx-auto max-w-full md:max-w-[60vw] ">
+                <div className="mx-auto w-full">
                     <Slider  {...settings}>
                         {tutorData.slice(0, 10).map((item, i) => (
                             <div key={i} className=" w-48 md:w-4/12 lg:w-3/12 xl:w-4/12 m-2 p-2  mx-auto sm:mx-4">
@@ -235,8 +211,11 @@ function HomeTutorSection({ token, tutors }) {
             </div>
             <div className='w-full max-w-s flex justify-end'>
                 <Link href="/tutors">
-                    <div className='w-30 items-center cursor-pointer bg-rose-600 hover:bg-rose-700 active:bg-rose-700 focus-visible:ring ring-rose-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-2 my-4'>
-                        <a className="inline-block ">All Tutors</a>
+<div className=' items-center text-center mx-auto  text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-2 my-4'>
+                        <a className="flex">আরও দেখুন
+                        <RiArrowRightLine size={25} className=" transform rotate-360 duration-1000" />
+
+                        </a>
                     </div>
                 </Link>
             </div>

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import PostCard from "./PostCard";
+import { RiArrowRightLine } from "react-icons/ri";
 
 function HomePostSection({ token, posts }) {
     const [postData, setPostData] = useState([]);
@@ -16,12 +17,13 @@ function HomePostSection({ token, posts }) {
 
     return (
         <>
-            <div className="flex justify-between items-end gap-4 mb-6">
-                <h2 className="text-gray-800 dark:text-gray-200 text-2xl lg:text-3xl font-bold">Recent Posts</h2>
-                <Link href="/posts">
-                    <a className="w-30 inline-block bg-rose-600 hover:bg-rose-700 active:bg-rose-700 focus-visible:ring ring-rose-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-2">All Posts</a>
-                </Link>
-            </div>
+            <div className={`  w-full   p-4 mb-6 h-full`} >
+                        <div className="w-full mb-5 mx-auto mx-auto text-center">
+                            <h2 className=" text-2xl lg:text-3xl tutor-title">টিউশন পোস্টসমূহ</h2>
+                            <p className='home-top-sub'>Hear from our satisfied clients and learn how we&#x27;ve helped them take <br />
+                            their businesses to new heights.</p>
+                        </div>
+                    </div>
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-2 lg:gap-4">
                 {postData.slice(0, 3).map((item, i) => (
                     <PostCard
@@ -48,12 +50,16 @@ function HomePostSection({ token, posts }) {
                 ))}
 
             </div>
-            <div className="flex justify-center items-end gap-4 my-6">
+           
+            <div className='w-full max-w-s flex justify-end'>
                 <Link href="/posts">
-                    <a className="w-30 inline-block bg-rose-600 hover:bg-rose-700 active:bg-rose-700 focus-visible:ring ring-rose-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-2">All Posts</a>
+<div className=' items-center text-center mx-auto  text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-2 my-4'>
+                        <a className="flex">আরও দেখুন
+                        <RiArrowRightLine size={25} className=" transform rotate-360 duration-1000" />
+
+                        </a>
+                    </div>
                 </Link>
-
-
             </div>
         </>
     );
