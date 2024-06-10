@@ -387,6 +387,7 @@ font-size: 55px;
 .tutor-title{
   font-family:  'Li Ador Noirrit', sans-serif;
 font-size: 55px;
+text-justify: auto;
 }
 .home-top-sub{
   text-justify: auto;
@@ -404,6 +405,7 @@ font-size: 55px;
 }
 .download-app{
   background-color: #FFFFFF;
+  padding-bottom: 10px;
 }
 .overview-m{
 
@@ -424,9 +426,13 @@ width:85% ;
   font-family:  'Li Ador Noirrit', sans-serif;
 font-size: 30px;
 }
-
-.button-ov{
-
-  
+.rating-rev{
+  padding: 2px;
+  border:1 px solid wheat;
 }
 
+h1 h2 h3 p button {
+  font-family:  'Li Ador Noirrit', sans-serif;
+
+}
+font-family:  'Li Ador Noirrit', sans-serif;

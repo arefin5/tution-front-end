@@ -10,7 +10,7 @@ import HomeTutorSection from '../components/user/HomeTutorSection';
 import HomeTop from "../components/HomeTop"
 import Navbar from "../components/Navbar"
 import HomeButom from '../components/HomeButom';
-
+import Reveiew from "../components/Reveiew"
 
 export default function Home({ token, posts, tutors, slides, media, stats }) {
   const [start, setStart] = useState(true)
@@ -56,7 +56,13 @@ export default function Home({ token, posts, tutors, slides, media, stats }) {
 <HomeButom />
 </div>
       </div>
-
+      {/*  */}
+      <div className="bg-gray-100 dark:bg-neutral-700">
+      <div className='w-full  mx-auto overview-m '>
+<Reveiew />
+</div>
+      </div>
+      
     </>
   )
 }
