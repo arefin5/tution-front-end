@@ -11,7 +11,7 @@ import HomeTop from "../components/HomeTop"
 import Navbar from "../components/Navbar"
 import HomeButom from '../components/HomeButom';
 import Reveiew from "../components/Reveiew"
-
+import Questions from "../components/Questions.jsx"
 export default function Home({ token, posts, tutors, slides, media, stats }) {
   const [start, setStart] = useState(true)
 
@@ -62,7 +62,26 @@ export default function Home({ token, posts, tutors, slides, media, stats }) {
 <Reveiew />
 </div>
       </div>
-      
+      {/*  */}
+      <Questions
+        sub="FREQUENTLY ASKED"
+        title="Got questions? We have you covered."
+        items={[
+          {
+            title: "Select a template for writing",
+            content: "Tell the artificial intelligence what your article should be about in a few words and it will start writing it for you.",
+          },
+          {
+            title: "Describe your topic",
+            content: "Tell the artificial intelligence what your article should be about in a few words and it will start writing it for you.",
+          },
+          {
+            title: "Create, edit and save",
+            content: "Tell the artificial intelligence what your article should be about in a few words and it will start writing it for you.",
+          },
+        ]}
+      />
+      {/*  */}
     </>
   )
 }
