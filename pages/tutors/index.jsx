@@ -23,6 +23,7 @@ import { GoArrowRight } from "react-icons/go";
 import { RiArrowLeftLine } from "react-icons/ri";
 import { RiArrowRightLine } from "react-icons/ri";
 import Navbar from "../../components/Navbar"
+import LocationSe from "../../components/LocationS";
 
 function Tutors({ token, tutorsRes }) {
   const router = useRouter();
@@ -189,6 +190,15 @@ function Tutors({ token, tutorsRes }) {
       </Head>
 <Navbar />
       <Banner />
+      <LocationSe 
+
+division={divission}
+        district={district}
+        area={upozilla}
+        setDivision={setDivission}
+        setDistrict={setDistrict}
+        setArea={setUpozilla}
+      />
       {/*navigation  */}
       <div className="navigation-tutor pt-3 pb-3 mb-4 mt-4 flex justify-center">
         <div className="flex flex-row mx-auto items-center">

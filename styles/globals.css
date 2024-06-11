@@ -185,6 +185,14 @@ input[type="range"]::-webkit-slider-thumb {
   .pin-icon {
     font-size: 10vw;
   }
+  .profile{
+    left:0;
+    top:0;
+    margin:0px auto ;
+    text-align: center !important;
+    justify-content: center !important;
+
+  }
 }
 
 /* Slider */
@@ -434,4 +442,15 @@ font-size: 30px;
 h1 h2 h3 p button {
   font-family:  'Li Ador Noirrit', sans-serif;
 
+}
+.profile {
+  left: 146px;
+  top: 73px;
+}
+@media screen and (max-width: 384px) {
+  .profile{
+    left: 130px;
+        top: -40px;
+
+  }
 }
