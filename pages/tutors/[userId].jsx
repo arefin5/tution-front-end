@@ -242,7 +242,7 @@
 //                                                 }
 //                                             </div>
 //                                             <div className="flex flex-col mt-12 md:mt-24 justify-center items-center w-full">
-                                           
+
 
 //                                                 <div className='relative  z-10 w-32 h-32 md:w-48  md:h-48 overflow-hidden bg-neutral-900  rounded-full '>
 //                                                     <img src={profileImg} alt='Profile image' />
@@ -295,14 +295,14 @@
 //                                                 }
 //                                             </div>
 
-                                          
-                                           
-                                          
-                                           
-                                           
+
+
+
+
+
 //                                         </div>
 //                                     </div>
-                                    
+
 //                                     <div className="  w-11/12 p-8 mx-auto  bg-white dark:bg-neutral-800 ">
 //                                         <div className="my-6">
 //                                             <p className="mt-2  text-lg font-semibold text-gray-800 dark:text-gray-200 md:mt-0 ">Educational Details:</p>
@@ -590,22 +590,57 @@ function Tutor({ userData, token, loadingState }) {
                                             className="rounded-t-lg"
                                         />
 
-<div className="absolute bottom-0 transform -translate-x-1/2 translate-y-1/2 w-32 h-32
+
+                                        <div className="absolute bottom-0 transform -translate-x-1/2 translate-y-1/2 w-32 h-32
  md:w-48 md:h-48 bg-white rounded-full border-4 profile  md:items-center border-white">
                                             <img src={profileImg} alt='Profile image' className="rounded-full" />
                                         </div>
-                                    </div>
-                                    <div className="text-center mt-16">
-                                        <h1 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 md:text-3xl">{userName}</h1>
-                                        {userData?.verified && (
-                                            <div className="inline-block ml-2">
-                                                <MdVerified className="text-green-500 w-6 h-6" />
+                                        <div className="flex ">
+                                            {/*  */}
+                                            <div className="flex sm:w-full md:w-full  mb-5">
+                                                {/* icons */}
+                                                <div className="">
+                                                    <p className=" 
+                                                      font-semibold text-gray-800 dark:text-gray-200 md:text-3xl">{userName}</p>
+                                                    {userData?.verified &&
+                                                        <div className=" w-5 h-5 ml-2">
+                                                            <MdVerified className="
+                                                            w-full h-full text-rose-600" />
+                                                        </div>
+                                                    }
+                                                </div>
+{/*  */}
+<div ></div>
+                                                {
+                                                    social.map((x, index) => (
+                                                        <button key={index} onClick={
+                                                            () => {
+                                                                window.open(x.link.startsWith("http") ? x.link : 'https://' + x.link, '_system')
+                                                            }
+                                                        }>
+                                                            <a target={'_blank'} className="inline-block text-gray-600 dark:text-gray-600 rounded-xl m-1 b">
+                                                                {
+                                                                    x.icon == 'fb' ?
+                                                                        <div className="icon">
+                                                                            <FaFacebookSquare className={`w-3 h-3 `} />
+                                                                        </div> :
+                                                                        x.icon == 'ig' ? <FaInstagramSquare className={`w-3 h-3 `} /> :
+                                                                            x.icon == 'tt' ? <FaTwitterSquare className={`w-3 h-3 `} /> :
+                                                                                x.icon == 'in' ? <FaLinkedin className={`w-3 h-3 `} /> :
+                                                                                    x.icon == 'yt' ? <FaYoutubeSquare className={`w-3 h-3 `} /> : ''
+                                                                }
+                                                            </a>
+                                                        </button>
+                                                    ))
+                                                }
+
                                             </div>
-                                        )}
-                                        <p className="text-gray-800 dark:text-gray-200 mt-2">{userAge && `${userAge} years old`}</p>
+                                            
+                                        </div>
                                     </div>
-                                    
-                                   
+
+
+
                                 </div>
                             </div>
                             {/* Other sections can follow here */}

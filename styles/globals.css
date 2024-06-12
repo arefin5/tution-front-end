@@ -446,6 +446,18 @@ h1 h2 h3 p button {
 .profile {
   left: 146px;
   top: 73px;
+}.icons {
+  box-sizing: border-box;
+  position: absolute;
+  width: 57.18px;
+  height: 57.18px;
+  left: 71.19px;
+  top: 0;
+  border: 1.42957px solid #E5E5E5;
+  border-radius: 50%; /* Makes the icon circular */
+  background-color: #ffffff;
+  color: #000000;
+  padding: 8px; /* Adjust as needed */
 }
 @media screen and (max-width: 384px) {
   .profile{
@@ -454,3 +466,6 @@ h1 h2 h3 p button {
 
   }
 }
+
+/* Social Media List */
+
