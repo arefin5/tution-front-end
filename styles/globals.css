@@ -476,3 +476,31 @@ h1 h2 h3 p button {
 .verified-col{
   color:#1DA463
 }
+.main-si{
+  color: #000000;
+  padding: 1px;
+}
+.search-button {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.search-button:hover {
+  background-color: #edf2f7;
+  border-color: #cbd5e0;
+}
+
+@media (min-width: 640px) {
+  .search-button {
+    /* Additional styles for small (sm) and medium (md) screens if necessary */
+  }
+}
+
+@media (min-width: 1024px) {
+  .search-button {
+    /* Additional styles for large (lg) screens if necessary */
+  }
+}

@@ -82,7 +82,7 @@ import StarRatings from "react-star-ratings";
 import Link from "next/link";
 import React from "react";
 import { MdVerified } from "react-icons/md";
-
+import { Squircle } from "corner-smoothing";
 function TutorCard({
   avatarImg,
   name,
@@ -104,6 +104,9 @@ function TutorCard({
   console.log(verified)
 
   return (
+    <Squircle>
+
+    
     <div className="flex flex-col 
     items-center relative text-rose-600
      bg-white 
@@ -161,6 +164,7 @@ function TutorCard({
         </a>
       </Link>
     </div>
+    </Squircle>
   );
 }
 
