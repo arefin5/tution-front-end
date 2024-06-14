@@ -395,6 +395,7 @@ const Tabs = ({ data, rating }) => {
                                         className="textarea textarea-primary w-full bg-slate-200 rounded mt-2"
                                         name="review-desc"
                                         id=""
+                                        placeholder="Enter here"
                                       ></textarea>
                                     </div>
                                   </div>
