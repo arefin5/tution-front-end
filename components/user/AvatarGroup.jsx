@@ -2,7 +2,7 @@ import React from "react";
 
 const AvatarGroup = ({ userData }) => {
   const renderAvatars = () => {
-    if (!userData || !userData.followersArray) return null;
+    if (!userData || !userData?.followersArray) return null;
 
     const { followersArray } = userData;
     const maxAvatars = 3;

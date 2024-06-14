@@ -1,21 +1,7 @@
-import Sidebar from "../../components/page/Sidebar";
-import Review from "../../components/user/Review";
-import WriteReview from "../../components/user/WriteReview";
 //-------icons
 import {
-  BiBookReader,
-  BiHeart,
-  BiShareAlt,
-  BiPhoneCall,
-  BiMessage,
-} from "react-icons/bi";
-import {
-  MdOutlineLocationOn,
-  MdReportProblem,
   MdVerified,
 } from "react-icons/md";
-import { SiGoogleclassroom } from "react-icons/si";
-import { BsGenderAmbiguous } from "react-icons/bs";
 //--------libraries
 import axios from "axios";
 import Alert from "sweetalert2";
@@ -25,14 +11,12 @@ import { parseCookies } from "nookies";
 import React from "react";
 import {
   FaFacebookSquare,
-  FaHeart,
   FaInstagramSquare,
   FaLinkedin,
   FaPen,
   FaTwitterSquare,
   FaYoutubeSquare,
 } from "react-icons/fa";
-import Link from "next/link";
 import { AppContext } from "../_app";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
