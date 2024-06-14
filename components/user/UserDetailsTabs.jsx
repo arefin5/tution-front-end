@@ -46,6 +46,16 @@ const Tabs = ({ data, rating }) => {
   } else {
     profileImg = `${process.env.NEXT_PUBLIC_BACKEND_URL}/${userInfo.avatarImg}`;
   }
+
+  const afterStyles = {
+    content: "''",
+    position: 'absolute',
+    left: '0',  
+    bottom: '-18px',
+    width: '100%',
+    height: '4px',
+    backgroundColor: '#10B981', // Tailwind green-500
+  };
   return (
     <>
       <div className="flex flex-wrap">
@@ -64,7 +74,9 @@ const Tabs = ({ data, rating }) => {
                 data-toggle="tab"
                 href="#"
                 role="tablist"
+                style={openTab === 1 ? { position: 'relative' } : {}}
               >
+                {openTab === 1 && <span style={afterStyles} />}
                 Details
               </a>
             </li>
@@ -80,8 +92,9 @@ const Tabs = ({ data, rating }) => {
                 }}
                 data-toggle="tab"
                 href="#link2"
-                role="tablist"
+                role="tablist"style={openTab === 2 ? { position: 'relative' } : {}}
               >
+                {openTab === 2 && <span style={afterStyles} />}
                 Education
               </a>
             </li>
@@ -97,8 +110,9 @@ const Tabs = ({ data, rating }) => {
                 }}
                 data-toggle="tab"
                 href="#link3"
-                role="tablist"
+                role="tablist"style={openTab === 3 ? { position: 'relative' } : {}}
               >
+                {openTab === 3 && <span style={afterStyles} />}
                 Experience
               </a>
             </li>
@@ -114,13 +128,14 @@ const Tabs = ({ data, rating }) => {
                 }}
                 data-toggle="tab"
                 href="#link3"
-                role="tablist"
+                role="tablist"style={openTab === 4 ? { position: 'relative' } : {}}
               >
+                {openTab === 4 && <span style={afterStyles} />}
                 Reviews
               </a>
             </li>
           </ul>
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 border-t-2 border-black">
+          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 border-t border-black">
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"}>
