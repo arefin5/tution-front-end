@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { parseCookies } from "nookies";
@@ -24,6 +23,8 @@ import { RiArrowLeftLine } from "react-icons/ri";
 import { RiArrowRightLine } from "react-icons/ri";
 import Navbar from "../../components/Navbar"
 import LocationSe from "../../components/LocationS";
+import HomePostSection from "../../components/post/HomePostSection";
+import TPostBanner from "../../components/TPostBanner";
 
 function Tutors({ token, tutorsRes }) {
   const router = useRouter();
@@ -53,6 +54,7 @@ function Tutors({ token, tutorsRes }) {
   const [activeComponent, setActiveComponent] = useState('component1'); // Set Component1 as default
   const [page, setPage] = useState(1);
   const [totalPosts, setTotalPosts] = useState(10);
+  const [posts, setPosts] = useState([]);
 
 
   const showForm = (e) => {
@@ -138,6 +140,23 @@ function Tutors({ token, tutorsRes }) {
       );
     }
   };
+  const fetchPosts = async () => {
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/?page&div&dis&upo&gender&search`, {
+        method: "GET",
+        headers:{token:token}
+      });
+      const data = await res.json();
+      console.log("data=>",data)
+      if (res.ok) {
+        setPosts(data);
+      } else {
+        console.error("Failed to fetch posts data", data);
+      }
+    } catch (error) {
+      console.error("Error fetching posts data", error);
+    }
+  };
   // 
   const handleComponentChange = (componentName) => {
     setActiveComponent(componentName);
@@ -165,10 +184,28 @@ function Tutors({ token, tutorsRes }) {
             ))}
           </div>
         );
-      case 'component2':
-        return < SearchBar />;
+        case 'component2':
+          return (
+                         <div className="max-w-screen-xl mt-12 px-4 md:px-8 mx-auto home-c">
+                           <HomePostSection posts={posts} token={token} />
+                         </div>
+                       );  
       case 'component3':
-        return <Banner />;
+        return <TPostBanner />;
+
+      default:
+        return null;
+    }
+  };
+  // 
+  const BannarImplement= () => {
+    switch (activeComponent) {
+      case 'component1':
+         <Banner />
+        case 'component2':
+          <Banner />  
+      case 'component3':
+        return <TPostBanner />;
 
       default:
         return null;
@@ -181,15 +218,19 @@ function Tutors({ token, tutorsRes }) {
     setPages(tutorsRes.pages);
     setCurrent(tutorsRes.current);
     setStart(!start);
-  }, [tutorsRes]);
+    fetchPosts();
+
+  }, [tutorsRes,posts]);
 
   return (
     <div className="banner-main">
       <Head>
         <title></title>
       </Head>
-<Navbar />
-      <Banner />
+     <Navbar />
+     {/* <TPostBanner />
+       */}
+       <Banner />
       <LocationSe 
 
 division={divission}
@@ -385,4 +426,3 @@ export async function getServerSideProps(ctx) {
 }
 
 export default Tutors;
-
