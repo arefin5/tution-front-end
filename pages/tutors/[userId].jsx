@@ -213,7 +213,7 @@ function Tutor({ userData, token, loadingState }) {
               ],
             }}
           />
-          <div className="flex flex-col lg:flex-row 2xl:flex-row xl:flex-row">
+          <div className="flex flex-col lg:flex-row 2xl:flex-row xl:flex-row TpostBanner">
             <div className="basis-full lg:basis-9/12 2xl:basis-9/12 xl:basis-9/12 mb-8 lg:mb-0">
               <div className="max-w-screen-xl px-2 md:px-8 mx-auto">
                 <div className="bg-white dark:bg-neutral-800 rounded-lg p-4 md:p-8">
@@ -323,9 +323,9 @@ function Tutor({ userData, token, loadingState }) {
               </div>
               {/* Other sections can follow here */}
             </div>
-            <div className="basis-full lg:basis-3/12 2xl:basis-3/12 xl:basis-3/12">
+            {/* <div className="basis-full lg:basis-3/12 2xl:basis-3/12 xl:basis-3/12">
               <Sidebar />
-            </div>
+            </div> */}
           </div>
         </>
       )}

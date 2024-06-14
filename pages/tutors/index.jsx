@@ -198,6 +198,20 @@ function Tutors({ token, tutorsRes }) {
     }
   };
   // 
+  const BannarImplement= () => {
+    switch (activeComponent) {
+      case 'component1':
+         <Banner />
+        case 'component2':
+          <Banner />  
+      case 'component3':
+        return <TPostBanner />;
+
+      default:
+        return null;
+    }
+  };
+  // 
 
   useEffect(() => {
     setTutorData(tutorsRes.data);
@@ -213,9 +227,10 @@ function Tutors({ token, tutorsRes }) {
       <Head>
         <title></title>
       </Head>
-<Navbar />
-<TPostBanner />
-      <Banner />
+     <Navbar />
+     {/* <TPostBanner />
+      <Banner /> */}
+      {BannarImplement}
       <LocationSe 
 
 division={divission}
