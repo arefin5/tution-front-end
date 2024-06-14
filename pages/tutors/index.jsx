@@ -229,8 +229,8 @@ function Tutors({ token, tutorsRes }) {
       </Head>
      <Navbar />
      {/* <TPostBanner />
-      <Banner /> */}
-      {BannarImplement}
+       */}
+       <Banner />
       <LocationSe 
 
 division={divission}

@@ -252,7 +252,7 @@ function Tutor({ userData, token, loadingState }) {
                           <p className="font-semibold text-gray-800 dark:text-gray-200 md:text-3xl flex items-center">
                             {userName}
                             {userData?.verified !== true && (
-                              <MdVerified className="w-full h-full text-blue-600 w-5 h-5 ml-2" />
+                              <MdVerified className="w-full h-full text-blue-600 w-5 h-5 ml-2 verified-col" />
                             )}
                           </p>
                           <div className="flex flex-row md:flex-col items-center md:items-stretch">
@@ -283,19 +283,28 @@ function Tutor({ userData, token, loadingState }) {
                                   className="inline-block text-gray-600 dark:text-gray-600 rounded-xl m-1 mt-8"
                                 >
                                   {x.icon == "fb" ? (
-                                    <div className="icon">
+                                    <div className="icons">
                                       <FaFacebookSquare
                                         className={`w-6 h-6 `}
                                       />
                                     </div>
                                   ) : x.icon == "ig" ? (
+                                    <div className="icons">
                                     <FaInstagramSquare className={`w-6 h-6 `} />
+                                    </div>
+                                   
                                   ) : x.icon == "tt" ? (
+                                    <div className="icons">
                                     <FaTwitterSquare className={`w-6 h-6 `} />
+                                    </div>
                                   ) : x.icon == "in" ? (
+                                    <div className="icons">
                                     <FaLinkedin className={`w-6 h-6 `} />
+                                    </div>
                                   ) : x.icon == "yt" ? (
+                                    <div className="icons">
                                     <FaYoutubeSquare className={`w-6 h-6 `} />
+                                    </div>
                                   ) : (
                                     ""
                                   )}
