@@ -27,12 +27,6 @@ import { VscKebabVertical } from "react-icons/vsc";
 const Tabs = ({ data, rating }) => {
   const userInfo = data.data;
 
-  // console.log({ userInfo });
-
-  // console.log({
-  //   ratings: userInfo.ratings,
-  //   postedBy: userInfo.ratings[0]?.postedBy,
-  // });
   const [openTab, setOpenTab] = React.useState(1);
   const [showModal, setShowModal] = React.useState(false);
   const [showContactModal, setShowContactModal] = React.useState(false);

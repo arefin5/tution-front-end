@@ -191,8 +191,6 @@ function Tutor({ userData, token, loadingState }) {
     profileImg = `${process.env.NEXT_PUBLIC_BACKEND_URL}/${userAvatar}`;
   }
 
-  console.log({ followersArray: userData.followersArray });
-
   return (
     <>
       {userData && (
