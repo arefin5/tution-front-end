@@ -28,6 +28,7 @@ import {
   FaHeart,
   FaInstagramSquare,
   FaLinkedin,
+  FaPen,
   FaTwitterSquare,
   FaYoutubeSquare,
 } from "react-icons/fa";
@@ -36,6 +37,7 @@ import { AppContext } from "../_app";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import DetailsTabs from "../../components/user/UserDetailsTabs";
+import AvatarGroup from "../../components/user/AvatarGroup";
 
 function Tutor({ userData, token, loadingState }) {
   const { user } = useContext(AppContext);
@@ -189,7 +191,7 @@ function Tutor({ userData, token, loadingState }) {
     profileImg = `${process.env.NEXT_PUBLIC_BACKEND_URL}/${userAvatar}`;
   }
 
-  // console.log({ userData });
+  console.log({ followersArray: userData.followersArray });
 
   return (
     <>
@@ -217,78 +219,101 @@ function Tutor({ userData, token, loadingState }) {
             <div className="basis-full lg:basis-9/12 2xl:basis-9/12 xl:basis-9/12 mb-8 lg:mb-0">
               <div className="max-w-screen-xl px-2 md:px-8 mx-auto">
                 <div className="bg-white dark:bg-neutral-800 rounded-lg p-4 md:p-8">
-                  <div className="relative mb-8">
-                    <Image
-                      src="/tutorbanner.png"
-                      layout="responsive"
-                      width={300}
-                      height={100}
-                      objectFit="cover"
-                      className="rounded-t-lg"
-                    />
-
-                    <div
-                      className="absolute bottom-0 transform -translate-x-1/2 translate-y-1/2 w-32 h-32
- md:w-48 md:h-48 bg-white rounded-full border-4 profile  md:items-center border-white"
-                    >
-                      <img
-                        src={profileImg}
-                        alt="Profile image"
-                        className="rounded-full"
+                  <div>
+                    <div className="md:mb-20">
+                      <Image
+                        src={
+                          userData.coverImg
+                            ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${userData?.coverImg}`
+                            : "/tutorbanner.png"
+                        }
+                        layout="responsive"
+                        width={300}
+                        height={100}
+                        objectFit="cover"
+                        className="rounded-t-lg relative" // Maintain the top-left rounding
                       />
+
+                      <div
+                        style={{ marginTop: "-100px" }}
+                        className="absolute flex items-center ml-2 justify-center w-32 h-32 md:w-48 md:h-48 bg-white rounded-full border-4 border-white"
+                      >
+                        <img
+                          src={profileImg}
+                          alt="Profile image"
+                          className="rounded-full"
+                        />
+                      </div>
                     </div>
 
-                    <div className="flex ">
+                    <div className="flex flex-row md:flex-col">
                       {/*  */}
-                      <div className="flex sm:w-full md:w-full  mb-5">
+                      <div className="flex w-full items-center justify-between sm:w-full md:w-full mb-5 mt-5 md:mt-0">
                         {/* icons */}
                         <div className="">
-                          <p className="font-semibold text-gray-800 dark:text-gray-200 md:text-3xl">
+                          <p className="font-semibold text-gray-800 dark:text-gray-200 md:text-3xl flex items-center">
                             {userName}
-                            {userData?.verified && (
-                              <div className=" w-5 h-5 ml-2">
-                                <MdVerified className="w-full h-full text-rose-600" />
-                              </div>
+                            {userData?.verified !== true && (
+                              <MdVerified className="w-full h-full text-blue-600 w-5 h-5 ml-2" />
                             )}
                           </p>
-                          <p>{userData?.followers} Followers</p>
+                          <div className="flex flex-row md:flex-col items-center md:items-stretch">
+                            <p className="hover:underline underline-offset-1 text-slate-500 mb-2 mr-2 cursor-pointer">
+                              {userData?.followers} Followers
+                            </p>
+                            <AvatarGroup userData={userData} />
+                          </div>
                         </div>
                         {/*  */}
                         <div></div>
-                        {social.map((x, index) => (
-                          <button
-                            key={index}
-                            onClick={() => {
-                              window.open(
-                                x.link.startsWith("http")
-                                  ? x.link
-                                  : "https://" + x.link,
-                                "_system"
-                              );
-                            }}
-                          >
-                            <a
-                              target={"_blank"}
-                              className="inline-block text-gray-600 dark:text-gray-600 rounded-xl m-1 b"
-                            >
-                              {x.icon == "fb" ? (
-                                <div className="icon">
-                                  <FaFacebookSquare className={`w-3 h-3 `} />
-                                </div>
-                              ) : x.icon == "ig" ? (
-                                <FaInstagramSquare className={`w-3 h-3 `} />
-                              ) : x.icon == "tt" ? (
-                                <FaTwitterSquare className={`w-3 h-3 `} />
-                              ) : x.icon == "in" ? (
-                                <FaLinkedin className={`w-3 h-3 `} />
-                              ) : x.icon == "yt" ? (
-                                <FaYoutubeSquare className={`w-3 h-3 `} />
-                              ) : (
-                                ""
-                              )}
-                            </a>
-                          </button>
-                        ))}
+                        <div className="grid">
+                          <div>
+                            {social.map((x, index) => (
+                              <button
+                                key={index}
+                                onClick={() => {
+                                  window.open(
+                                    x.link.startsWith("http")
+                                      ? x.link
+                                      : "https://" + x.link,
+                                    "_system"
+                                  );
+                                }}
+                              >
+                                <a
+                                  target={"_blank"}
+                                  className="inline-block text-gray-600 dark:text-gray-600 rounded-xl m-1 mt-8"
+                                >
+                                  {x.icon == "fb" ? (
+                                    <div className="icon">
+                                      <FaFacebookSquare
+                                        className={`w-6 h-6 `}
+                                      />
+                                    </div>
+                                  ) : x.icon == "ig" ? (
+                                    <FaInstagramSquare className={`w-6 h-6 `} />
+                                  ) : x.icon == "tt" ? (
+                                    <FaTwitterSquare className={`w-6 h-6 `} />
+                                  ) : x.icon == "in" ? (
+                                    <FaLinkedin className={`w-6 h-6 `} />
+                                  ) : x.icon == "yt" ? (
+                                    <FaYoutubeSquare className={`w-6 h-6 `} />
+                                  ) : (
+                                    ""
+                                  )}
+                                </a>
+                              </button>
+                            ))}
+                          </div>
+                          <div className="inline-block ">
+                            <button className="px-3 py-2 mt-4 rounded border hover:shadow-md flex items-center bg-primary-500 text-black">
+                              <FaPen className="mr-2 text-green-500" />{" "}
+                              <span className="hidden md:inline-block ">
+                                Edit Profile
+                              </span>
+                            </button>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
