@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { parseCookies } from "nookies";
@@ -162,28 +163,31 @@ function Tutors({ token, tutorsRes }) {
     setActiveComponent(componentName);
   };
 
+
+
   // 
   const renderComponent = () => {
     switch (activeComponent) {
       case 'component1':
         return (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 lg:gap-4">
-            {tutorData.map((item, index) => (
-              <TutorCard
-                key={index}
-                avatarImg={item.avatarImg}
-                name={item.name}
-                institute={item.institute}
-                department={item.department}
-                ratingsCount={item.ratingsCount}
-                starsCount={item.starsCount}
-                verified={item.verified}
-                gender={item.gender}
-                id={item._id}
-              />
-            ))}
-          </div>
-        );
+        <div className="grid justify-center mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 lg:gap-4">
+    {tutorData.map((item) => (
+      <div className="main-t" key={item._id}>
+        <TutorCard
+          avatarImg={item.avatarImg}
+          name={item.name}
+          institute={item.institute}
+          department={item.department}
+          ratingsCount={item.ratingsCount}
+          starsCount={item.starsCount}
+          verified={item.verified}
+          gender={item.gender}
+          id={item._id}
+        />
+      </div>
+    ))}
+  </div>
+  );
         case 'component2':
           return (
                          <div className="max-w-screen-xl mt-12 px-4 md:px-8 mx-auto home-c">
@@ -231,15 +235,15 @@ function Tutors({ token, tutorsRes }) {
      {/* <TPostBanner />
        */}
        <Banner />
-      <LocationSe 
+      {/* <LocationSe 
 
-division={divission}
+       division={divission}
         district={district}
         area={upozilla}
         setDivision={setDivission}
         setDistrict={setDistrict}
         setArea={setUpozilla}
-      />
+      /> */}
       {/*navigation  */}
       <div className="navigation-tutor pt-3 pb-3 mb-4 mt-4 flex justify-center">
         <div className="flex flex-row mx-auto items-center">
@@ -258,6 +262,7 @@ division={divission}
           </div>
         </div>
       </div>
+      <SearchBar />
       <div className="container 
       main-tutor
        mx-auto  2xl:basis-9/12
@@ -271,7 +276,7 @@ division={divission}
             className={`flex flex-col w-full   rounded-lg  dark:bg-neutral-800 p-4 mb-6 h-full`}
           >
 
-            <SearchBar />
+            
 
 
             {renderComponent()}

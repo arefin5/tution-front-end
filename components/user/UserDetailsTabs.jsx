@@ -700,7 +700,7 @@ const Tabs = ({ data, rating }) => {
                           Tuition Subjects:
                         </h5>
                         <p
-                          className="text-xl font-['Roboto
+                          className="ic-content text-xl font-['Roboto
 ', sans-serif] font-normal leading-6 text-[#00000097]"
                         >
                           {userInfo?.subjects}
@@ -717,7 +717,7 @@ const Tabs = ({ data, rating }) => {
                           Preferable Class:
                         </h5>
                         <p
-                          className="text-xl font-['Roboto
+                          className="ic-content text-xl font-['Roboto
 ', sans-serif] font-normal leading-6 text-[#00000097]"
                         >
                           {userInfo?.class}
@@ -734,7 +734,7 @@ const Tabs = ({ data, rating }) => {
                           Preferable Area:
                         </h5>
                         <p
-                          className="text-xl font-['Roboto
+                          className="ic-content  text-xl font-['Roboto
 ', sans-serif] font-normal leading-6 text-[#00000097]"
                         >
                           {userInfo?.area}
@@ -751,7 +751,7 @@ const Tabs = ({ data, rating }) => {
                           Email:
                         </h5>
                         <p
-                          className="text-xl font-['Roboto
+                          className="ic-content text-xl font-['Roboto
 ', sans-serif] font-normal leading-6 text-[#00000097]"
                         >
                           {userInfo?.email}
@@ -821,13 +821,13 @@ const Tabs = ({ data, rating }) => {
                           {item?.institute}
                         </h5>
                         <p
-                          className="text-xl font-['Roboto
+                          className="text-xl ic-content  font-['Roboto
 ', sans-serif] font-normal leading-6 text-[#00000097]"
                         >
                           {item?.department}
                         </p>
                         <p
-                          className="text-xl font-['Roboto
+                          className="text-xl ic-content  font-['Roboto
 ', sans-serif] font-normal leading-6 text-[#00000097]"
                         >
                           {item?.year}

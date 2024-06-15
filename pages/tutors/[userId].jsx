@@ -248,7 +248,7 @@ function Tutor({ userData, token, loadingState }) {
                         <div className="relative md:static -top-10 md:-top-0 z-20 rounded-[40px] bg-white">
                       <div className="flex flex-row md:flex-col">
                         {/*  */}
-                        <div className="flex flex-col md:flex-row w-full items-center justify-between sm:w-full md:w-full mb-2 md:mb-0 mt-5 md:mt-0">
+                        <div className="flex flex-col md:flex-row w-full items-center justify-between sm:w-full md:w-full  md:mb-0 mt-5 md:mt-0">
                           {/* icons */}
                           <div className="">
                             <p className="font-semibold text-gray-800 dark:text-gray-200 text-xl md:text-3xl flex items-center mt-14 md:mt-0 ">

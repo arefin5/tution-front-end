@@ -1,10 +1,53 @@
-import { BiSearch } from "react-icons/bi";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { MdClear, MdTune, MdFilterList } from "react-icons/md";
+import { BiSearch } from "react-icons/bi";
+import { MdTune } from "react-icons/md";
+import Slider from "react-slick";
+
+function SampleNextArrow(props) {
+  const { onClick } = props;
+  return (
+    <div
+      className="absolute top-[50%] z-20 right-0 -mt-5 bottom-0 rounded-lg flex justify-end items-center cursor-pointer hover:bg-rose-700 focus:bg-rose-700 text-white"
+      style={{ width: '85px', height: '42px', background: 'none', color: "black" }}
+      onClick={onClick}
+    >
+      {'>'}
+    </div>
+  );
+}
+
+const SearchButton = ({ term, onClick }) => (
+  <div className="p-1">
+    <button
+      onClick={() => onClick(term)}
+      className="search-button flex items-center justify-center w-full text-black duration-150 focus:shadow-outline bg-white rounded-lg border border-gray-300 hover:bg-gray-100"
+      style={{ height: '36px' }}
+    >
+      <BiSearch className="text-lg text-gray-600" />
+      <span className="text-lg ml-1">{term}</span>
+    </button>
+  </div>
+);
+
 const SearchBar = () => {
   const router = useRouter();
   const [search, setSearch] = useState("");
+  const [showMore, setShowMore] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -16,105 +59,54 @@ const SearchBar = () => {
     router.replace(`/tutors/?search=`);
   };
 
+  const handlePresetSearch = (term) => {
+    setSearch(term);
+    router.replace(`/tutors/?search=${term}`);
+  };
+
+  const presetTerms = ["Buet", "DU", "DMC", "CUM", "RUET", "SUST"];
+  const visibleTerms = showMore || isLargeScreen ? presetTerms : presetTerms.slice(0, 3);
+
+  const toggleShowMore = () => {
+    setShowMore(!showMore);
+  };
+
   return (
-    <div className="flex">
-      {/*  */}
-      <div className="flex-auto w-14 mx-auto">
-        <button
-          className="search-button flex items-center justify-center w-full text-black duration-150 focus:shadow-outline">
-          <BiSearch className="text-xl text-gray-600" />
-          <span className="text-xl ml-2">Buet</span>
-        </button>
-      </div>
-
-      {/*  */}
-      <div className="flex-auto w-14 mx-auto">
-        <button
-          className="search-button flex items-center justify-center w-full text-black duration-150 focus:shadow-outline">
-          <BiSearch className="text-xl text-gray-600" />
-          <span className="text-xl ml-2">DU</span>
-        </button>
-      </div>
-      <div className="flex-auto w-14 mx-auto">
-        <button
-          className="search-button flex items-center justify-center w-full text-black duration-150 focus:shadow-outline">
-          <BiSearch className="text-xl text-gray-600" />
-          <span className="text-xl ml-2">DMC</span>
-        </button>
-      </div>
-      <div className="flex-auto w-14 mx-auto">
-        <button
-          className="search-button flex items-center justify-center w-full text-black duration-150 focus:shadow-outline">
-          <BiSearch className="text-xl text-gray-600" />
-          <span className="text-xl ml-2">CUM</span>
-        </button>
-      </div>
-      <div className="flex-auto w-14 mx-auto">
-        <button
-          className="search-button flex items-center justify-center w-full text-black duration-150 focus:shadow-outline">
-          <BiSearch className="text-xl text-gray-600" />
-          <span className="text-xl ml-2">
-          RUET
-          </span>
-        </button>
-      </div>
-      <div className="flex-auto w-14 mx-auto">
-        <button
-          className="search-button flex items-center justify-center w-full text-black duration-150 focus:shadow-outline">
-          <BiSearch className="text-xl text-gray-600" />
-          <span className="text-xl ml-2">SUST</span>
-        </button>
-      </div>
-
-      {/*  */}
-
-      <div className="flex-auto w-5 mx-auto">
-
-      </div>
-      <div className="flex-auto w-14 mx-auto mt-2">
-        <div className="flex relative ">
-          <button style={{ display: 'flex', alignItems: 'center' }}>
-            <span >Filter</span>
-
-            <MdTune size={24} style={{ marginLeft: '8px' }} />
-          </button>
+    <>
+      {!isLargeScreen ? (
+        <Slider
+          infinite={true}
+          slidesToShow={3}
+          slidesToScroll={1}
+          speed={500}
+          autoplay={false}
+          nextArrow={<SampleNextArrow />}
+          prevArrow={<div style={{ display: 'none' }} />}
+        >
+          {presetTerms.map((term, index) => (
+            <div key={index} style={{ display: index < 3 || showMore ? 'block' : 'none' }}>
+              <SearchButton term={term} onClick={handlePresetSearch} />
+            </div>
+          ))}
+        </Slider>
+      ) : (
+        <div className="flex container 
+      main-tutor-butoon flex-wrap justify-center lg:justify-center mx-auto lg:flex-nowrap ">
+          {presetTerms.map((term, index) => (
+            <div key={index} className="flex-auto w-1/5 sm:w-1/4 lg:w-auto mx-1 my-1 lg:mx-2 lg:my-0">
+              <SearchButton term={term} onClick={handlePresetSearch} />
+            </div>
+          ))}
+          <div className="flex-auto w-1/5 sm:w-1/4 lg:w-auto mx-1 my-1 lg:mx-2 lg:my-0 ">
+            <button className="flex items-center mt-2 justify-center w-full text-black duration-150 focus:shadow-outline bg-white rounded-lg border border-gray-300 hover:bg-gray-100 p-1">
+              <span>Filter</span>
+              <MdTune size={24} style={{ marginLeft: "5px" }} />
+            </button>
+          </div>
         </div>
-      </div>
-      {/*  */}
-    </div>
+      )}
+    </>
   );
 };
 
 export default SearchBar;
-
-
-// const SearchBar = () => {
-//   return (
-//     <div className="flex justify-center mt-4">
-//       <nav aria-label="Page navigation">
-//         <ul className="inline-flex space-x-2">
-//           <li>
-//             <button className="flex items-center justify-center w-10 h-10 text-green-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100">
-//               <BiSearch size={20} className="text-green-600" />
-//               <span className="ml-2">DMC</span>
-//             </button>
-//           </li>
-//           <li>
-//             <button className="flex items-center justify-center w-10 h-10 text-green-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100">
-//               <BiSearch size={20} className="text-green-600" />
-//               <span className="ml-2">αUIV</span>
-//             </button>
-//           </li>
-//           <li>
-//             <button className="flex items-center justify-center w-10 h-10 text-green-600 transition-colors duration-150 rounded-full focus:shadow-outline hover:bg-indigo-100">
-//               <BiSearch size={20} className="text-green-600" />
-//               <span className="ml-2">RUET</span>
-//             </button>
-//           </li>
-//         </ul>
-//       </nav>
-//     </div>
-//   );
-// };
-
-// export default SearchBar;

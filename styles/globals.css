@@ -504,10 +504,36 @@ h1 h2 h3 p button {
   border-radius: 100px;
 }
 
+.ic-content{
+  margin-left:26px;
+}
+
 @media (min-width: 640px) {
   .search-button {
     /* Additional styles for small (sm) and medium (md) screens if necessary */
   }
+  .contents {
+    margin-left: 26px;
+  }
+ 
+
+}
+@media (max-width: 640px) {
+  .search-button {
+    /* Additional styles for small (sm) and medium (md) screens if necessary */
+  }
+  .tu-card{
+    width: 181px;
+    height: 240px;
+  }
+  .contents {
+    margin-left: 26px;
+  }
+ 
+}
+.main-t{
+  max-width: 300px !important;
+  
 }
 
 @media (min-width: 1024px) {
@@ -515,3 +541,20 @@ h1 h2 h3 p button {
     /* Additional styles for large (lg) screens if necessary */
   }
 }
+
+.main-tutor-butoon{
+  width:80% ;
+}
+
+
+.inlineContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inlineButton {
+  background-color: #f0f0f0;
+ 
+}
+
