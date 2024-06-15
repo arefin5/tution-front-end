@@ -526,7 +526,6 @@ import {
   MdOutlineMessage,
   MdShare,
 } from "react-icons/md";
-import { SiGooglemessages } from "react-icons/si";
 import { VscKebabVertical } from "react-icons/vsc";
 
 const Tabs = ({ data, rating }) => {
@@ -562,9 +561,17 @@ const Tabs = ({ data, rating }) => {
     backgroundColor: "#10B981", // Tailwind green-500
   };
 
+  const handleTabClick = (tabIndex, linkId) => {
+    setOpenTab(tabIndex);
+    const element = document.getElementById(linkId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
-      <div className="flex flex-wrap ml-7">
+      <div className="flex flex-wrap md:ml-7 -mt-10 md:-mt-0">
         <div className="w-full">
           <ul className="flex mb-0 list-none pt-3 pb-4 flex-row" role="tablist">
             <li className="flex-auto text-center">
@@ -576,9 +583,11 @@ const Tabs = ({ data, rating }) => {
                 onClick={(e) => {
                   e.preventDefault();
                   setOpenTab(1);
+
+                  handleTabClick(1,'link1')
                 }}
                 data-toggle="tab"
-                href="#"
+                href="#link1"
                 role="tablist"
                 style={openTab === 1 ? { position: "relative" } : {}}
               >
@@ -595,6 +604,8 @@ const Tabs = ({ data, rating }) => {
                 onClick={(e) => {
                   e.preventDefault();
                   setOpenTab(2);
+
+                  handleTabClick(2,'link2')
                 }}
                 data-toggle="tab"
                 href="#link2"
@@ -614,6 +625,8 @@ const Tabs = ({ data, rating }) => {
                 onClick={(e) => {
                   e.preventDefault();
                   setOpenTab(3);
+
+                  handleTabClick(3,'link3')
                 }}
                 data-toggle="tab"
                 href="#link3"
@@ -633,9 +646,11 @@ const Tabs = ({ data, rating }) => {
                 onClick={(e) => {
                   e.preventDefault();
                   setOpenTab(4);
+
+                  handleTabClick(4,'link4')
                 }}
                 data-toggle="tab"
-                href="#link3"
+                href="#link4"
                 role="tablist"
                 style={openTab === 4 ? { position: "relative" } : {}}
               >
@@ -644,10 +659,13 @@ const Tabs = ({ data, rating }) => {
               </a>
             </li>
           </ul>
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 border-t border-black">
+          <div
+            id="link1"
+            className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 border-t border-black"
+          >
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
-                <div className={openTab === 1 ? "block" : "hidden"}>
+                <div id="link1">
                   <div className="flex flex-row">
                     {userInfo.gender && (
                       <p
@@ -668,7 +686,7 @@ const Tabs = ({ data, rating }) => {
                       </p>
                     )}
                   </div>
-                  <p className="text-xl mt-5 leading-6 font-['Inter', sans-serif]">
+                  <p className="text-lg mt-5 text-[#00000097] leading-6 font-['Inter', sans-serif]">
                     {userInfo.bio}
                   </p>
                   <div className="mt-5">
@@ -741,76 +759,51 @@ const Tabs = ({ data, rating }) => {
                       </div>
                     )}
 
-                    <div className="flex justify-end">
-                      <button
-                        onClick={() => setShowContactModal(true)}
-                        className="text-slate-500 flex-shrink-0 border-2 p-3 rounded-full"
-                      >
-                        <SiGooglemessages />
-                      </button>
-                    </div>
-
-                    {/* Modal Start */}
-
-                    {showContactModal ? (
-                      <>
-                        <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none py-20">
-                          <div className="relative w-96">
-                            {/*content*/}
-                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col bg-white outline-none focus:outline-none">
-                              {/*header*/}
-
-                              <div className="border border-black rounded">
-                                <div className="flex items-center justify-between mt-8 my-3 p-2">
-                                  <h4>Rank: 542</h4>{" "}
-                                  <div className="flex items-center justify-center">
-                                    <span className="p-2 rounded mx-1 bg-slate-100">
-                                      <BiLike />
-                                    </span>
-                                    <span className="p-2 rounded mx-1 bg-slate-100">
-                                      <MdShare />
-                                    </span>
-                                    <span className="p-2 rounded mx-1 bg-slate-100">
-                                      <VscKebabVertical />
-                                    </span>
-                                  </div>
-                                </div>
-                                <div className="border-t border-black">
-                                  <div className="flex items-center p-2 my-2">
-                                    <span className="text-lg mr-2">
-                                      <MdCall className="text-xl" />
-                                      {"  "}
-                                    </span>
-                                    {userInfo?.phone}
-                                  </div>
-                                </div>
-                                <div className="border-t border-black">
-                                  <div className="flex items-center p-2 my-2">
-                                    <span className="text-lg mr-2">
-                                      <MdOutlineMessage className="text-xl" />
-                                      {"  "}
-                                    </span>
-                                    Message
-                                  </div>
-                                </div>
-                              </div>
-
-                              <button
-                                onClick={() => setShowContactModal(false)}
-                                className="absolute top-0 left-0 p-3 m-2 hover:bg-slate-100 rounded-full"
-                              >
-                                <MdCancel />
-                              </button>
-                            </div>
-                          </div>
+                    <div className="border my-10 border-[#000000c8] rounded w-auto md:w-[500px]">
+                      <div className="flex items-center justify-between mt-8 my-3 p-2">
+                        {/* <h4>Rank: 542</h4>{" "} */}
+                        <h4></h4> 
+                        <div className="flex items-center justify-center">
+                          <span className="p-2 rounded mx-1 bg-slate-100">
+                            <BiLike />
+                          </span>
+                          <span className="p-2 rounded mx-1 bg-slate-100">
+                            <MdShare />
+                          </span>
+                          <span className="p-2 rounded mx-1 bg-slate-100">
+                            <VscKebabVertical />
+                          </span>
                         </div>
-                        <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-                      </>
-                    ) : null}
-                    {/* Modal End */}
+                      </div>
+                      <div className="border-t border-black">
+                        <div className="flex items-center p-2 my-2">
+                          <span className="text-lg mr-2">
+                            <MdCall className="text-xl" />
+                            {"  "}
+                          </span>
+                          {userInfo?.phone}
+                        </div>
+                      </div>
+                      <div className="border-t border-black">
+                        <div className="flex items-center p-2 my-2">
+                          <span className="text-lg mr-2">
+                            <MdOutlineMessage className="text-xl" />
+                            {"  "}
+                          </span>
+                          Message
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className={openTab === 2 ? "block" : "hidden"}>
+                <div id="link2" className="my-5 mb-10">
+                  <h3
+                    id="link2"
+                    className="text-2xl font-['Roboto
+', sans-serif] font-semibold leading-6"
+                  >
+                    Education
+                  </h3>
                   {userInfo?.edu?.map((item, index) => {
                     return (
                       <div
@@ -820,46 +813,78 @@ const Tabs = ({ data, rating }) => {
                           (index === 0 ? "" : "border-t-2")
                         }
                       >
-                        <h5 className="flex items-center text-xl font-['Roboto
-', sans-serif] font-normal leading-6">
+                        <h5
+                          className="flex items-center text-xl font-['Roboto
+', sans-serif] font-normal leading-6"
+                        >
                           <FaGraduationCap className="mr-1 text-2xl" />
                           {item?.institute}
                         </h5>
-                        <p className="text-xl font-['Roboto
-', sans-serif] font-normal leading-6 text-[#00000097]">{item?.department}</p>
-                        <p className="text-xl font-['Roboto
-', sans-serif] font-normal leading-6 text-[#00000097]">{item?.year}</p>
+                        <p
+                          className="text-xl font-['Roboto
+', sans-serif] font-normal leading-6 text-[#00000097]"
+                        >
+                          {item?.department}
+                        </p>
+                        <p
+                          className="text-xl font-['Roboto
+', sans-serif] font-normal leading-6 text-[#00000097]"
+                        >
+                          {item?.year}
+                        </p>
                       </div>
                     );
                   })}
                 </div>
-                <div className={openTab === 3 ? "block" : "hidden"}>
+                <div id="link3" className="my-5 mb-10">
+                  <h3
+                    className="text-2xl font-['Roboto
+', sans-serif] font-semibold leading-6"
+                  >
+                    Experience
+                  </h3>
                   {userInfo?.experience?.map((item, index) => {
                     return (
                       <div key={index + 1}>
-                        <h5 className="flex items-center text-xl font-['Roboto
-', sans-serif] font-normal leading-6">
+                        <h5
+                          className="flex items-center text-xl font-['Roboto
+', sans-serif] font-normal leading-6"
+                        >
                           <GrUserExpert className="mr-1 text-2xl" />
                           {item?.title}
                         </h5>
-                        <p className="text-xl font-['Roboto
-', sans-serif] font-normal leading-6 text-[#00000097]">{item?.desc}</p>
-                        <p className="text-xl font-['Roboto
-', sans-serif] font-normal leading-6 text-[#00000097]">{item?.year}</p>
+                        <p
+                          className="text-xl font-['Roboto
+', sans-serif] font-normal leading-6 text-[#00000097]"
+                        >
+                          {item?.desc}
+                        </p>
+                        <p
+                          className="text-xl font-['Roboto
+', sans-serif] font-normal leading-6 text-[#00000097]"
+                        >
+                          {item?.year}
+                        </p>
                       </div>
                     );
                   })}
                 </div>
-                <div className={openTab === 4 ? "block" : "hidden"}>
+                <div id="link4">
                   <div className="grid flex-wrap">
                     <div>
                       <h4 className="flex items-center justify-center text-xl font-['Roboto', sanes-serif] text-[#00000097] font-semibold">
                         <MdOutlineDoNotDisturb className="mr-1" />
                         অভিযোগ করুন
                       </h4>
-                      <h4 className="text-3xl font-['Roboto', sanes-serif] font-semibold mt-5">রিটিংস দিন</h4>
-                      <p className="text-xl font-['Ruda
-', sans-serif] font-normal leading-10 text-[#00000097]">Tell others what you think</p>
+                      <h4 className="text-2xl md:text-3xl font-['Roboto', sanes-serif] font-semibold mt-5">
+                        রিটিংস দিন
+                      </h4>
+                      <p
+                        className="text-xl font-['Ruda
+', sans-serif] font-normal leading-10 text-[#00000097]"
+                      >
+                        Tell others what you think
+                      </p>
                       <div className="grid justify-center my-4">
                         <div
                           className="inline-block  mx-auto my-5 hover:drop-shadow-md"
@@ -957,7 +982,7 @@ const Tabs = ({ data, rating }) => {
                                     <div className="p-4">
                                       <p>Add detail review</p>
                                       <textarea
-                                        className="textarea textarea-primary w-full bg-slate-200 rounded mt-2"
+                                        className="textarea textarea-primary w-full bg-slate-200 rounded mt-2 p-2"
                                         name="review-desc"
                                         id=""
                                         placeholder="Enter here"
@@ -984,15 +1009,19 @@ const Tabs = ({ data, rating }) => {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between my-4">
+                    <div className="flex flex-col md:flex-row items-center justify-between my-4">
                       <div>
-                        <h4 className="text-green-500 my-1 text-2xl font-['Roboto
-', sans-serif] font-normal leading-9">
+                        <h4
+                          className="text-green-500 my-1 text-xl md:text-2xl font-['Roboto
+', sans-serif] font-normal leading-9"
+                        >
                           একটি রিভিও লিখুন
                         </h4>
-                        <h4 className="text-black flex items-center text-3xl font-['Roboto
-', sans-serif] font-semibold leading-10 ">
-                          রিটিংস এবং রিভিউস <GrCircleInformation />
+                        <h4
+                          className="text-black flex items-center text-lg md:text-3xl font-['Roboto
+', sans-serif] font-semibold leading-10 "
+                        >
+                          রিটিংস এবং রিভিউস <GrCircleInformation className="ml-2" />
                         </h4>
                       </div>
                       <div className="grid text-center">
@@ -1024,11 +1053,11 @@ const Tabs = ({ data, rating }) => {
                                 />
                                 <div className="flex flex-col md:flex-row items-center justify-between w-full">
                                   <div className="flex w-full md:w-1/2">
-                                    <h5 className="text-lg sm:text-xs md:text-lg lg:text-lg text-center">
+                                    <h5 className="text-sm md:text-lg text-center">
                                       {item?.postedBy?.name}
                                     </h5>
 
-                                    <p className="ml-5 font-semibold text-sm mt-2">
+                                    <p className="ml-5 font-semibold text-xs md:text-sm mt-2">
                                       Create {calculateDaysAgo(item.createdAt)}{" "}
                                       days ago
                                     </p>
@@ -1060,7 +1089,7 @@ const Tabs = ({ data, rating }) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>  
             </div>
           </div>
         </div>

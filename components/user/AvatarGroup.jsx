@@ -34,7 +34,7 @@ const AvatarGroup = ({ userData }) => {
       const extraCount = followersArray.length - maxAvatars;
       return (
         <div className="avatar placeholder">
-          <div className="w-12 bg-neutral text-neutral-content">
+          <div className="w-10 bg-neutral text-neutral-content">
             <span>+{extraCount}</span>
           </div>
         </div>
