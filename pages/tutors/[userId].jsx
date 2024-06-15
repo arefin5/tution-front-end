@@ -252,7 +252,7 @@ function Tutor({ userData, token, loadingState }) {
                           <p className="font-semibold text-gray-800 dark:text-gray-200 md:text-3xl flex items-center">
                             {userName}
                             {userData?.verified !== true && (
-                              <MdVerified className="w-full h-full text-blue-600 w-5 h-5 ml-2 verified-col" />
+                              <MdVerified className="text-blue-600 w-5 h-5 ml-2 verified-col" />
                             )}
                           </p>
                           <div className="flex flex-row md:flex-col items-center md:items-stretch">
