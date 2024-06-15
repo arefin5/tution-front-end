@@ -1053,11 +1053,11 @@ const Tabs = ({ data, rating }) => {
                                 />
                                 <div className="flex flex-col md:flex-row items-center justify-between w-full">
                                   <div className="flex w-full md:w-1/2">
-                                    <h5 className="text-lg sm:text-xs md:text-lg lg:text-lg text-center">
+                                    <h5 className="text-sm md:text-lg text-center">
                                       {item?.postedBy?.name}
                                     </h5>
 
-                                    <p className="ml-5 font-semibold text-sm mt-2">
+                                    <p className="ml-5 font-semibold text-xs md:text-sm mt-2">
                                       Create {calculateDaysAgo(item.createdAt)}{" "}
                                       days ago
                                     </p>
