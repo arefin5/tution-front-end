@@ -500,6 +500,10 @@ h1 h2 h3 p button {
   border-color: #cbd5e0;
 }
 
+.banner-round{
+  border-radius: 100px;
+}
+
 @media (min-width: 640px) {
   .search-button {
     /* Additional styles for small (sm) and medium (md) screens if necessary */

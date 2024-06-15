@@ -571,7 +571,7 @@ const Tabs = ({ data, rating }) => {
 
   return (
     <>
-      <div className="flex flex-wrap md:ml-7">
+      <div className="flex flex-wrap md:ml-7 -mt-10 md:-mt-0">
         <div className="w-full">
           <ul className="flex mb-0 list-none pt-3 pb-4 flex-row" role="tablist">
             <li className="flex-auto text-center">
