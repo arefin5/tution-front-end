@@ -507,7 +507,19 @@ h1 h2 h3 p button {
 .ic-content{
   margin-left:26px;
 }
+.ic-contents{
+  margin-left: 10px;
+  margin-top: -4px;
+}
+.Image-rep{
+  margin-right: 1px;
+}
+.gender{
 
+}
+.others{
+margin-top:5px;
+}
 @media (min-width: 640px) {
   .search-button {
     /* Additional styles for small (sm) and medium (md) screens if necessary */
