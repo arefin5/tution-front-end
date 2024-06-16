@@ -170,7 +170,9 @@ function Tutors({ token, tutorsRes }) {
     switch (activeComponent) {
       case 'component1':
         return (
-        <div className="grid justify-center mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 lg:gap-4">
+        <div className="grid 
+        justify-center mx-auto 
+        grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 lg:gap-4">
     {tutorData.map((item) => (
       <div className="main-t" key={item._id}>
         <TutorCard

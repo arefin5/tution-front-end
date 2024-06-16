@@ -224,7 +224,7 @@ function Tutor({ userData, token, loadingState }) {
                         src={
                           userData.coverImg
                             ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${userData?.coverImg}`
-                            : "/tutorbanner.png"
+                            : "/coverprofile.png"
                         }
                         layout="responsive"
                         width={300}

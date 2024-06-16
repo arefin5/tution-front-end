@@ -522,9 +522,12 @@ h1 h2 h3 p button {
   .search-button {
     /* Additional styles for small (sm) and medium (md) screens if necessary */
   }
+  .main-tutor{
+    width:100% ;
+  }
   .tu-card{
     width: 181px;
-    height: 240px;
+    height: 240px !important;
   }
   .contents {
     margin-left: 26px;

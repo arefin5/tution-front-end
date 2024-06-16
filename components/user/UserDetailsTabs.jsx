@@ -681,6 +681,9 @@ const Tabs = ({ data, rating }) => {
                         className="mx-2 text-xl font-['Roboto
 ', sans-serif] font-normal flex items-center"
                       >
+                      <Image 
+                        src="/calender.png"
+                      />
                         <FaCalendarAlt className="mr-1" />
                         Joined on {userInfo.age}
                       </p>
@@ -847,20 +850,20 @@ const Tabs = ({ data, rating }) => {
                     return (
                       <div key={index + 1}>
                         <h5
-                          className="flex items-center text-xl font-['Roboto
+                          className=" flex items-center text-xl font-['Roboto
 ', sans-serif] font-normal leading-6"
                         >
                           <GrUserExpert className="mr-1 text-2xl" />
                           {item?.title}
                         </h5>
                         <p
-                          className="text-xl font-['Roboto
+                          className="ic-content text-xl font-['Roboto
 ', sans-serif] font-normal leading-6 text-[#00000097]"
                         >
                           {item?.desc}
                         </p>
                         <p
-                          className="text-xl font-['Roboto
+                          className=" text-xl font-['Roboto
 ', sans-serif] font-normal leading-6 text-[#00000097]"
                         >
                           {item?.year}

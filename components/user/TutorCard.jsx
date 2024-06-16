@@ -370,7 +370,9 @@ function TutorCard({
       <div className="tu-card  items-center relative text-rose-600 bg-white dark:bg-neutral-800 rounded-xl tutor-cards p-4 lg:p-8 border hover:border-green-500 transition duration-300">
         <Link href={`/tutors/${id}`}>
           <a>
-            <div className="w-28 md:w-32 h-28 md:h-32 mt-1 bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden mb-2 md:mb-4 cursor-pointer">
+            <div className="w-28 md:w-32 h-28 md:h-32 
+            justify-center mx-auto
+             bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden mb-2 md:mb-4 cursor-pointer">
               <img
                 src={profileImg}
                 loading="lazy"
