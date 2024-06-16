@@ -223,7 +223,7 @@ const Tabs = ({ data, rating }) => {
                   <p className="text-lg mt-5 text-[#00000097] leading-6 font-['Inter', sans-serif]">
                     {userInfo.bio}
                   </p>
-                  <div className="mt-5">
+                  <div className="mt-8">
                     {userInfo?.subjects && (
                       <div className="my-3">
                         <h5 className="flex items-center text-xl font-['Roboto', sans-serif] font-normal leading-6">
