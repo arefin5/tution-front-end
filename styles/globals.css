@@ -540,7 +540,7 @@ margin-top:5px;
   .tu-card{
     width: 149px ;
     height: 239px !important;
-    margin-bottom:-10 !important; 
+    margin: 6px auto !important;
   }
   .contents {
     margin-left: 26px;
