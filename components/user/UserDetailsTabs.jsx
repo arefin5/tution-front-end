@@ -333,7 +333,7 @@ const Tabs = ({ data, rating }) => {
                       </div>
                     )}
 
-                    <div className="border my-10 border-[#000000c8] rounded w-auto md:w-[500px]">
+                    <div className="border mt-8 mb-10 border-[#000000c8] rounded w-auto md:w-[500px]">
                       <div className="flex items-center justify-between  p-2 my-2">
                         {/* <h4>Rank: 542</h4>{" "} */}
                         <h4></h4>
