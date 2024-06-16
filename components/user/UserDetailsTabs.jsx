@@ -334,7 +334,7 @@ const Tabs = ({ data, rating }) => {
                     )}
 
                     <div className="border my-10 border-[#000000c8] rounded w-auto md:w-[500px]">
-                      <div className="flex items-center justify-between mt-8 my-3 p-2">
+                      <div className="flex items-center justify-between  p-2 my-2">
                         {/* <h4>Rank: 542</h4>{" "} */}
                         <h4></h4>
                         <div className="flex items-center justify-center">
@@ -360,7 +360,7 @@ const Tabs = ({ data, rating }) => {
                               />
                             </svg>
                           </span>
-                          <span className="">
+                          <span className="ml-3">
                             <svg
                               width="38"
                               height="36"
@@ -384,7 +384,7 @@ const Tabs = ({ data, rating }) => {
                               />
                             </svg>
                           </span>
-                          <span className="">
+                          <span className="ml-3">
                             <svg
                               width="38"
                               height="36"
@@ -416,8 +416,8 @@ const Tabs = ({ data, rating }) => {
                           </span>
                         </div>
                       </div>
-                      <div className="border-t border-black">
-                        <div className="flex items-center p-2 my-2">
+                      <div className="border-t border-black px-2 my-1">
+                        <div className="flex items-center p-2">
                           <span className="text-lg mr-2">
                             <svg
                               width="25"
@@ -435,11 +435,14 @@ const Tabs = ({ data, rating }) => {
 
                             {"  "}
                           </span>
-                          {userInfo?.phone}
+                          <span className="grid">
+                            <span className="text-lg font-medium">{userInfo?.phone}</span>
+                            <span className="text-sm font-light">Click to show number</span>
+                          </span>
                         </div>
                       </div>
-                      <div className="border-t border-black">
-                        <div className="flex items-center p-2 my-2 text-xl">
+                      <div className="border-t border-black px-2 my-1">
+                        <div className="flex items-center p-2 my-2 text-xl ">
                           <span className="mr-2">
                             <svg
                               width="32"
@@ -468,7 +471,10 @@ const Tabs = ({ data, rating }) => {
 
                             {"  "}
                           </span>
+                          <span className="text-lg leading-[30px] font-medium">
+
                           Message
+                          </span>
                         </div>
                       </div>
                     </div>
