@@ -1,28 +1,17 @@
 "use-client";
 import Image from "next/image";
 import React from "react";
-import { BiBookBookmark, BiLike } from "react-icons/bi";
-import { BsGenderMale } from "react-icons/bs";
 import {
   FaArrowLeft,
-  FaCalendarAlt,
   FaGraduationCap,
-  FaRegClock,
   FaRegStar,
   FaStar,
 } from "react-icons/fa";
 import { GrCircleInformation, GrUserExpert } from "react-icons/gr";
 import {
-  MdCall,
-  MdCancel,
-  MdMarkEmailUnread,
   MdOutlineDoNotDisturb,
   MdOutlineFileUpload,
-  MdOutlineLocationOn,
-  MdOutlineMessage,
-  MdShare,
 } from "react-icons/md";
-import { VscKebabVertical } from "react-icons/vsc";
 
 const Tabs = ({ data, rating }) => {
   const userInfo = data;
@@ -333,7 +322,7 @@ const Tabs = ({ data, rating }) => {
                       </div>
                     )}
 
-                    <div className="border mt-8 mb-10 border-[#000000c8] rounded w-auto md:w-[500px]">
+                    <div className="border mt-6 mb-8 border-[#000000c8] rounded-[10px] w-auto md:w-[500px]">
                       <div className="flex items-center justify-between  p-2 my-2">
                         {/* <h4>Rank: 542</h4>{" "} */}
                         <h4></h4>
