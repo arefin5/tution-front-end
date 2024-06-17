@@ -406,7 +406,7 @@ const Tabs = ({ data, rating }) => {
                         </div>
                       </div>
                       <div className="border-t border-black px-2 my-1">
-                        <div className="flex items-center p-2">
+                        <div className="flex items-center p-3">
                           <span className="text-lg mr-2">
                             <svg
                               width="25"
@@ -431,7 +431,7 @@ const Tabs = ({ data, rating }) => {
                         </div>
                       </div>
                       <div className="border-t border-black px-2 my-1">
-                        <div className="flex items-center p-2 my-2 text-xl ">
+                        <div className="flex items-center p-3 my-2 text-xl ">
                           <span className="mr-2">
                             <svg
                               width="32"
