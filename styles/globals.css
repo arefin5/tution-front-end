@@ -552,9 +552,37 @@ margin-top:5px;
   
 }
 
+.main-dis{
+  padding-bottom: 70px;
+}
+.top-right {
+  height: 529px;
+}
+.rank-box{
+  margin:10px 0px 0px 0px;
+}
+
+
 @media (min-width: 1024px) {
   .search-button {
     /* Additional styles for large (lg) screens if necessary */
+  }
+  .main-dis{
+ display:hiden ;
+  }
+  .mobile-rank{
+    display:block
+  }
+  .top-right {
+    display:hiden ;
+
+  }
+  .rank-box{
+     display:hiden ;
+
+  }
+  .main-tt{
+    display:hiden ;
   }
 }
 

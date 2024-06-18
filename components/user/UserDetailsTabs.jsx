@@ -1,6 +1,6 @@
 "use-client";
 import Image from "next/image";
-import React from "react";
+import {useEffect,UseState} from "react"
 import {
   FaArrowLeft,
   FaGraduationCap,
@@ -53,7 +53,19 @@ const Tabs = ({ data, rating }) => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <>
       <div className="flex flex-wrap md:ml-7 -mt-10 md:-mt-0">
@@ -321,8 +333,8 @@ const Tabs = ({ data, rating }) => {
                         </p>
                       </div>
                     )}
-
-                    <div className="border mt-6 mb-8 border-[#000000c8] rounded-[10px] w-auto md:w-[500px]">
+                    {!isLargeScreen ? (
+                    <div className="mobile-rank  border mt-6 mb-8 border-[#000000c8] rounded-[10px] w-auto md:w-[500px]">
                       <div className="flex items-center justify-between  p-2 my-2">
                         {/* <h4>Rank: 542</h4>{" "} */}
                         <h4></h4>
@@ -467,6 +479,8 @@ const Tabs = ({ data, rating }) => {
                         </div>
                       </div>
                     </div>
+                    ):(<></>)
+                    }
                   </div>
                 </div>
                 <div id="link2" className="my-5 mb-10">
