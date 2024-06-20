@@ -1,6 +1,6 @@
 "use-client";
 import Image from "next/image";
-import {useEffect,UseState} from "react"
+import React ,{useEffect,useState} from "react"
 import {
   FaArrowLeft,
   FaGraduationCap,
@@ -16,10 +16,10 @@ import {
 const Tabs = ({ data, rating }) => {
   const userInfo = data;
 
-  const [openTab, setOpenTab] = React.useState(1);
-  const [showModal, setShowModal] = React.useState(false);
-  const [showContactModal, setShowContactModal] = React.useState(false);
-  const [currentRating, setCurrentRating] = React.useState(0);
+  const [openTab, setOpenTab] = useState(1);
+  const [showModal, setShowModal] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
+  const [currentRating, setCurrentRating] = useState(0);
 
   const calculateDaysAgo = (dateString) => {
     const createdDate = new Date(dateString);
