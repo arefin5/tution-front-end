@@ -359,8 +359,14 @@ font-size: 55px;
 }
 
 .activeB {
-  border-bottom: 2px solid #1DA463;
   opacity: unset;
+}
+.activeBa {
+  border-bottom: 10px solid #1DA463;
+  opacity: unset;
+  margin-top: 10px;
+  margin-bottom: -6px;
+  width: 95px;
 }
 .navigation-tutor{
   background-color: #2E6755;
@@ -601,4 +607,42 @@ margin-top:5px;
   background-color: #f0f0f0;
  
 }
+
+/* Ensure your CSS file or style block includes this */
+.tu-card {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.hoverable:hover {
+  box-shadow: 0px 4px 8px rgba(197, 197, 197, 0.2);
+}
+.rtang{
+  margin-top:-3px;
+}
+/* styles/globals.css */
+/* styles/globals.css */
+.shadow {
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), /* top shadow */
+              0 4px 6px -1px rgba(0, 0, 0, 0.1),  /* bottom shadow */
+              -4px 0 6px -1px rgba(0, 0, 0, 0.1), /* left shadow */
+              4px 0 6px -1px rgba(0, 0, 0, 0.1);  /* right shadow */
+}
+
+
+.custom-shadow-hover:hover {
+  box-shadow: 
+    0 0px 0px 0px rgba(203, 203, 203, 1),   /* top shadow */
+    0 42px 50px -1px rgba(203, 203, 203, 1), /* bottom shadow with extra 10px */
+    -11px 0 20px -1px rgba(203, 203, 203, 1), /* left shadow */
+    11px 0 20px -1px rgba(203, 203, 203, 1);  /* right shadow */
+  border: 2px solid green;
+}
+
+.boxulter{
+   margin:70px;
+}
+.hidenT{
+ margin:70px;
+}
+
 

@@ -22,7 +22,7 @@ const Banner = () => {
   return (
     <div className="relative w-full h-96">
       <Image
-        src="/tutorbanner.png"
+        src="/cover.png"
         layout="fill"
         objectFit="cover"
         alt="Banner"

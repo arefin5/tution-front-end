@@ -91,6 +91,19 @@ function Tutor({ userData, token, loadingState }) {
       setLoading(loadingState);
     }
   }, []);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const updateRatings = async () => {
     await axios
@@ -442,10 +455,21 @@ function Tutor({ userData, token, loadingState }) {
                 </div>
               </div>
               {/*  */}
+
               <div className="main-tt 2xl:basis-3/12 mr-1 xl:basis-3/12 lg:basis-3/12 md:basis-full sm:basis-full basis-full ">
+          {/*  */}
+{isLargeScreen ? 
+                    (
+                      <>
+                    
+
+          
            <div className="top-right">
           
            </div>
+
+
+
            <div className="rank-box justify-start border mt-6 mb-8 border-[#000000c8] rounded-[10px] w-auto md:w-[475px]">
                       <div className="flex items-center justify-between  p-2 my-2">
                         {/* <h4>Rank: 542</h4>{" "} */}
@@ -591,7 +615,12 @@ function Tutor({ userData, token, loadingState }) {
                         </div>
                       </div>
                     </div>
+                    </>
+                  ):null
+                }
                     </div>
+
+               
                  
                 
                             

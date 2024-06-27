@@ -42,7 +42,7 @@ const Tabs = ({ data, rating }) => {
     left: "0",
     bottom: "-17px",
     width: "100%",
-    height: "3px",
+    height: "7px",
     backgroundColor: "#10B981", // Tailwind green-500
   };
 
@@ -158,7 +158,7 @@ const Tabs = ({ data, rating }) => {
           </ul>
           <div
             id="link1"
-            className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 border-t border-black"
+            className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 border-t"
           >
             <div className="px-4 py-5 flex-auto top-id">
               <div className="tab-content tab-space">
@@ -333,7 +333,8 @@ const Tabs = ({ data, rating }) => {
                         </p>
                       </div>
                     )}
-                    {!isLargeScreen ? (
+                    {!isLargeScreen ? 
+                    (
                     <div className="mobile-rank  border mt-6 mb-8 border-[#000000c8] rounded-[10px] w-auto md:w-[500px]">
                       <div className="flex items-center justify-between  p-2 my-2">
                         {/* <h4>Rank: 542</h4>{" "} */}
@@ -479,7 +480,11 @@ const Tabs = ({ data, rating }) => {
                         </div>
                       </div>
                     </div>
-                    ):(<></>)
+                    ):(<>
+                      <div classname="boxulter">
+                                 <h1 className="hidenT"></h1>
+                      </div>
+                    </>)
                     }
                   </div>
                 </div>

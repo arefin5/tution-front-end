@@ -174,7 +174,7 @@ function Tutors({ token, tutorsRes }) {
         justify-center mx-auto 
         grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 lg:gap-4">
     {tutorData.map((item) => (
-      <div className="main-t" key={item._id}>
+      <div className="main-t tu-card-hov" key={item._id}>
         <TutorCard
           avatarImg={item.avatarImg}
           name={item.name}
@@ -253,14 +253,27 @@ function Tutors({ token, tutorsRes }) {
             <p onClick={() => handleComponentChange('component1')}
               className={`opacity-50 cursor-pointer text-white ${activeComponent === 'component1' ? 'activeB' : ''}`}
             >টিউটর প্রফাইল |</p>
+            <div               className={`mt-5 ${activeComponent === 'component1' ? 'activeBa' : ''}`}
+              >
+
+            </div>
           </div>
           <div className="px-2">
             <p onClick={() => handleComponentChange('component2')}
               className={`opacity-50 cursor-pointer text-white ${activeComponent === 'component2' ? 'activeB' : ''}`}
             >টিউটর পোস্ট |</p>
+             <div               className={`mt-5 ${activeComponent === 'component2' ? 'activeBa' : ''}`}
+              >
+
+            </div>
           </div>
           <div className="px-2">
-            <p onClick={() => handleComponentChange('component3')} className={`opacity-50 cursor-pointer text-white ${activeComponent === 'component3' ? 'activeB' : ''}`}>টিউশন পোস্ট</p>
+            <p onClick={() => handleComponentChange('component3')} 
+            className={`opacity-50 cursor-pointer text-white ${activeComponent === 'component3' ? 'activeB' : ''}`}>টিউশন পোস্ট</p>
+            <div               className={`mt-5 ${activeComponent === 'component3' ? 'activeBa' : ''}`}
+              >
+
+            </div>
           </div>
         </div>
       </div>
