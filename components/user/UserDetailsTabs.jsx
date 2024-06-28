@@ -481,7 +481,7 @@ const Tabs = ({ data, rating }) => {
                       </div>
                     </div>
                     ):(<>
-                      <div classname="boxulter">
+                      <div className="boxulter">
                                  <h1 className="hidenT"></h1>
                       </div>
                     </>)

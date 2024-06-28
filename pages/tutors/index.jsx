@@ -148,7 +148,7 @@ function Tutors({ token, tutorsRes }) {
         headers:{token:token}
       });
       const data = await res.json();
-      console.log("data=>",data)
+      // console.log("data=>",data)
       if (res.ok) {
         setPosts(data);
       } else {
@@ -236,7 +236,7 @@ function Tutors({ token, tutorsRes }) {
      <Navbar />
      {/* <TPostBanner />
        */}
-       <Banner />
+       <Banner token={token} search={search} setSearch={setSearch} HandleSearch={HandleSearch}/>
       {/* <LocationSe 
 
        division={divission}
@@ -371,12 +371,7 @@ function Tutors({ token, tutorsRes }) {
               )}
             </div>
             <div className="flex items-center">
-              {/* <button
-                onClick={showForm}
-                className="inline-block bg-rose-600 hover:bg-rose-700 active:bg-rose-700 focus-visible:ring ring-rose-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-2"
-              >
-                {showFilter == false ? "Show Filter" : "Hide Filter"}
-              </button> */}
+              
             </div>
           </div>
 

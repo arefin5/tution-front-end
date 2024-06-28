@@ -32,18 +32,10 @@ const Banner = () => {
         <h1 className="text-4xl font-bold mb-4 baneer-f">দেশের সবচাইতে বড় টিউটর প্ল্যাটফর্মে স্বাগতম!</h1>
         <p className="text-xl opacity-50 baneer-f">সেরা শিক্ষকদের পরিচর্যায় দেশের যেকোন প্রান্ত থেকে<br />অব্যাহত থাকুক পড়াশুনার অগ্রযাত্রা</p>
         <div className="bg-white mt-4 w-full max-w-xl flex pt-4 pb-4 pl-6 pr-6 rounded-lg">
-          <div className="flex-grow relative bg-white rounded-l-lg">
-            <HiOutlineLocationMarker className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-600" />
-            <input
-              type="text"
-              placeholder="Select Location"
-              className="w-full pl-10 pr-3 py-2 border border-gray-300 focus:outline-none rounded-lg h-12"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            />
-          </div>
+         
           <div className="flex-grow relative bg-white rounded-r-lg ml-1">
-            <BiSearch className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-600" />
+          <HiOutlineLocationMarker className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-600" />
+
             <input
               type="text"
               placeholder="Search by dept, institute"
@@ -54,6 +46,17 @@ const Banner = () => {
             {search && (
               <MdClear className="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-600 cursor-pointer" onClick={clearSearch} />
             )}
+          </div>
+          <div className="flex-grow relative bg-white rounded-l-lg">
+            <BiSearch className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-600" />
+
+            <input
+              type="text"
+              placeholder="Select Location"
+              className="w-full pl-10 pr-3 py-2 border border-gray-300 focus:outline-none rounded-lg h-12"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            />
           </div>
           <button
             onClick={handleSearch}

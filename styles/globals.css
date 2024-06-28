@@ -368,6 +368,14 @@ font-size: 55px;
   margin-bottom: -6px;
   width: 95px;
 }
+.dark-input {
+  background-color: #333; /* Dark background color */
+  color: #000; /* Black text color */
+  border: 1px solid #555; /* Darker border color */
+}
+
+
+
 .navigation-tutor{
   background-color: #2E6755;
 }

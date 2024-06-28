@@ -71,7 +71,7 @@ function MyApp({ Component, pageProps }) {
   const updateMobileMenuState = (menuState) => {
     setMobileMenuShow(menuState)
   }
-  console.clear()
+  // console.clear()
   return (
     // @ts-ignore
     <AppContext.Provider value={{ user, setUser, token, setToken, socket, }}>
